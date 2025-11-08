@@ -5,7 +5,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public PlayerInputSet input { get; private set; }
     public Vector2 moveinput { get; set; }
-    public WeaponHandler WeaponHandler;
+    public WeaponHandler WeaponHandler { get; private set; }
 
     void Awake()
     {

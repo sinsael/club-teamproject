@@ -130,15 +130,15 @@ GameObject:
   - component: {fileID: 160077953}
   - component: {fileID: 160077952}
   - component: {fileID: 160077951}
+  - component: {fileID: 160077958}
   - component: {fileID: 160077957}
   - component: {fileID: 160077956}
   - component: {fileID: 160077955}
   - component: {fileID: 160077954}
-  - component: {fileID: 160077958}
   - component: {fileID: 160077960}
   - component: {fileID: 160077959}
-  - component: {fileID: 160077961}
   - component: {fileID: 160077962}
+  - component: {fileID: 160077963}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -260,7 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207d3470021589e4aa213414b3766275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponHandler: {fileID: 0}
 --- !u!114 &160077956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b224b691392f6a48a3e1ced37de0dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entitystat: {fileID: 0}
   currentBullets: 0
   isReloading: 0
   isAttackCooldown: 0
@@ -344,23 +342,6 @@ MonoBehaviour:
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 0
---- !u!114 &160077961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 160077950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee50e60fcb97da45af95f45776691b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fov: 34.1
-  radius: 5.15
-  targetlayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &160077962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,8 +355,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultStatSetup: {fileID: 11400000, guid: 522f68c600508dd4ab4e9726b376813d, type: 2}
-  defaultStatWeaponSetup: {fileID: 0}
-  weaponstat: {fileID: 0}
+  defaultStatWeaponSetup: {fileID: 11400000, guid: 344b95808e648c74a88ee8b431963a66, type: 2}
+--- !u!114 &160077963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160077950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 299f92773bc9a3c41b694f2b19dbce50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pistolStats: {fileID: 11400000, guid: 344b95808e648c74a88ee8b431963a66, type: 2}
+  rifleStats: {fileID: 11400000, guid: 516a490dd7943304d982c16e5d93d0aa, type: 2}
+  shotgunStats: {fileID: 11400000, guid: bdb88d7fc56517b469299f52611e92e5, type: 2}
 --- !u!1 &418199385
 GameObject:
   m_ObjectHideFlags: 0

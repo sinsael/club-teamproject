@@ -10,6 +10,7 @@ public class WeaponStatSO : ScriptableObject
     public float Damage;
     public float Range;
     public float Speed;
+    public float FireRate;
     public int MaxBullets;
     public float ReloadTime;
     public float fov;

@@ -5,28 +5,24 @@ public class Entity_Stat : MonoBehaviour
     public StatSO defaultStatSetup;
     public WeaponStatSO defaultStatWeaponSetup;
 
-    public HealthStat healthStat;
-    public SweaponStats weaponstat;
-    public void Awake()
+    public HealthStat healthStat = new HealthStat
     {
-        healthStat = new HealthStat
-        {
-            maxHealth = new Stat(),
-            healthRegen = new Stat(),
-        };
+        maxHealth = new Stat(),
+        healthRegen = new Stat()
+    };
+    public SweaponStats weaponstat = new SweaponStats
+    {
+        Speed = new Stat(),
+        Range = new Stat(),
+        Damage = new Stat(),
+        MaxBullets = new Stat(),
+        ReloadTime = new Stat(),
+        fov = new Stat(),
+        radius = new Stat(),
+        FireRate = new Stat()
+    };
 
-        weaponstat = new SweaponStats
-        {
-            Speed = new Stat(),
-            Range = new Stat(),
-            Damage = new Stat(),
-            MaxBullets = new Stat(),
-            ReloadTime = new Stat(),
-            fov = new Stat(),
-            radius = new Stat(),
-        };
-        ApplyDefaultStatSetup();
-    }
+
 
     public float GetMaxHealth()
     {
@@ -49,9 +45,9 @@ public class Entity_Stat : MonoBehaviour
         return weaponstat.Range.GetValue();
     }
 
-    public float GetMaxBullets()
+    public int GetMaxBullets()
     {
-        return weaponstat.MaxBullets.GetValue();
+        return (int)weaponstat.MaxBullets.GetValue();
     }
 
     public float GetReloadTime()
@@ -59,17 +55,31 @@ public class Entity_Stat : MonoBehaviour
         return weaponstat.ReloadTime.GetValue();
     }
 
+    public float GetFireRate()
+    {
+        return weaponstat.FireRate.GetValue();
+    }
+
     public float GetFov()
     {
+        if (weaponstat.fov == null)
+        {
+            return 0f;
+        }
         return weaponstat.fov.GetValue();
     }
     public float GetRadius()
     {
+        if (weaponstat.radius == null)
+        {
+            return 0f;
+        }
         return weaponstat.radius.GetValue();
     }
 
     public void EquipNewWeapon(WeaponStatSO newWeaponStats)
     {
+        defaultStatWeaponSetup = newWeaponStats;
         if (newWeaponStats == null)
         {
             Debug.LogWarning("장착할 무기 정보가 없습니다! (아마도 '맨손' 상태)");
@@ -81,6 +91,7 @@ public class Entity_Stat : MonoBehaviour
             weaponstat.ReloadTime.SetBaseValue(0);
             weaponstat.fov.SetBaseValue(0);
             weaponstat.radius.SetBaseValue(0);
+            weaponstat.FireRate.SetBaseValue(0);
             return;
         }
 
@@ -91,6 +102,7 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.ReloadTime.SetBaseValue(newWeaponStats.ReloadTime);
         weaponstat.fov.SetBaseValue(newWeaponStats.fov);
         weaponstat.radius.SetBaseValue(newWeaponStats.radius);
+        weaponstat.FireRate.SetBaseValue(newWeaponStats.FireRate);
     }
 
     public Stat GetStatByType(StatType type)
@@ -106,6 +118,7 @@ public class Entity_Stat : MonoBehaviour
             case StatType.ReloadTime: return weaponstat.ReloadTime;
             case StatType.fov: return weaponstat.fov;
             case StatType.radius: return weaponstat.radius;
+            case StatType.fireRate: return weaponstat.FireRate;
 
             default:
                 Debug.LogWarning($"StatType {type} not implemented yet.");
@@ -131,6 +144,7 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.ReloadTime.SetBaseValue(defaultStatWeaponSetup.ReloadTime);
         weaponstat.fov.SetBaseValue(defaultStatWeaponSetup.fov);
         weaponstat.radius.SetBaseValue(defaultStatWeaponSetup.radius);
+        weaponstat.FireRate.SetBaseValue(defaultStatWeaponSetup.FireRate);
 
     }
 }

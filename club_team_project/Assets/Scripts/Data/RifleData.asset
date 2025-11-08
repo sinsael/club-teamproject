@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0228153c693bf4f977b6d27fc5d161, type: 3}
-  m_Name: Flash
+  m_Script: {fileID: 11500000, guid: 07b3d9a1ea94f204c841d72b6a985d4c, type: 3}
+  m_Name: RifleData
   m_EditorClassIdentifier: 
-  weaponType: 4
-  stats:
-    Speed: 3
-    Range: 4
-    Bullets: 1
-    MaxBullets: 1
-    ReloadTime: 0
+  weaponType: 1
+  Damage: 0
+  Range: 0
+  Speed: 10
+  MaxBullets: 30
+  ReloadTime: 0
+  fov: 50
+  radius: 20

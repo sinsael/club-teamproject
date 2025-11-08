@@ -8,7 +8,6 @@ public class Player : Entity
     public Interaction interaction { get; private set; }
     public Entity_Stat Entity_Stat { get; private set; }
     public Entity_Health Entity_Health { get; private set; }
-    public AlertSystem alertSystem { get; private set; }
 
     //플레이어 상태
     public Player_IdleState idleState { get; private set; }

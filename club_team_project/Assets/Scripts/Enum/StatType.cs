@@ -9,5 +9,6 @@ public enum StatType
     Bullets,
     Speed,
     MaxBullets,
-    ReloadTime
+    ReloadTime,
+    fireRate
 }

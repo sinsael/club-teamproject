@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee0228153c693bf4f977b6d27fc5d161, type: 3}
-  m_Name: Shotgun
+  m_Script: {fileID: 11500000, guid: 07b3d9a1ea94f204c841d72b6a985d4c, type: 3}
+  m_Name: PistolData
   m_EditorClassIdentifier: 
-  weaponType: 2
-  stats:
-    Speed: 1
-    Range: 3
-    Bullets: 7
-    MaxBullets: 7
-    ReloadTime: 4
+  weaponType: 3
+  Damage: 0
+  Range: 0
+  Speed: 5
+  MaxBullets: 30
+  ReloadTime: 0
+  fov: 20
+  radius: 5

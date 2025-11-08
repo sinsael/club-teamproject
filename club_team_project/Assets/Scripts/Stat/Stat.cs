@@ -46,7 +46,11 @@ public class Stat
         return finalValue;
     }
 
-    public void SetBaseValue(float value) => baseValue = value;
+    public void SetBaseValue(float value)
+    {
+        baseValue = value;
+        needToCalcualte = true;
+    }
 }
 
 [Serializable]

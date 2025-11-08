@@ -12,7 +12,7 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
     [SerializeField] private float regenInterval = 1;
     [SerializeField] private bool canRegenerateHealth = true;
 
-    protected virtual void Awake()
+    protected void Awake()
     {
         entity = GetComponent<Entity>();
         entitystat = GetComponent<Entity_Stat>();
@@ -23,10 +23,15 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
             return;
         }
 
-        currentHealth = entitystat.GetMaxHealth();
         isDead = false;
 
         InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
+    }
+
+    public void Start()
+    {
+        currentHealth = entitystat.GetMaxHealth();
+
     }
 
     public bool TakeDamage(float damage)
