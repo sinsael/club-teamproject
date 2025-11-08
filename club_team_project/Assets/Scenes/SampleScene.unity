@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 207d3470021589e4aa213414b3766275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WeaponHandler: {fileID: 0}
 --- !u!114 &160077956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b224b691392f6a48a3e1ced37de0dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSO: {fileID: 0}
+  entitystat: {fileID: 0}
+  currentBullets: 0
+  isReloading: 0
+  isAttackCooldown: 0
 --- !u!114 &160077957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,11 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bacee62f886a8a41be3f14461ddd507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponStat: {fileID: 0}
-  HP: 0
-  speed: 5
-  RegenDelady: 0
-  RegenHP: 0
 --- !u!95 &160077958
 Animator:
   serializedVersion: 7
@@ -375,6 +374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultStatSetup: {fileID: 11400000, guid: 522f68c600508dd4ab4e9726b376813d, type: 2}
+  defaultStatWeaponSetup: {fileID: 0}
+  weaponstat: {fileID: 0}
 --- !u!1 &418199385
 GameObject:
   m_ObjectHideFlags: 0

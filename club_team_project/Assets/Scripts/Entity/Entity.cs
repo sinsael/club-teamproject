@@ -6,7 +6,6 @@ public class Entity : MonoBehaviour
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
     protected StateMachine stateMachine;
-    public Weapon weaponStat;
 
     public virtual void Awake()
     {
@@ -29,8 +28,6 @@ public class Entity : MonoBehaviour
        stateMachine.FixedUpdateActiveState();
     }
 
-
-
     public virtual void SetVelocity(float Xvelocity, float Yvelocity)
     {
         rb.linearVelocity = new Vector2(Xvelocity, Yvelocity);
@@ -38,14 +35,4 @@ public class Entity : MonoBehaviour
 
     public virtual void EntityDeath()
     { }
-
-    public bool TakeDamage(float damage)
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool TakeDamage()
-    {
-        throw new NotImplementedException();
-    }
 }

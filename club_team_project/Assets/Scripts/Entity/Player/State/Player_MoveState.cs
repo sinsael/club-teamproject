@@ -6,7 +6,15 @@ public class Player_MoveState : PlayerState
     {
     }
 
-   public override void Update()
+    public override void Enter()
+    {
+        base.Enter();
+
+
+        Debug.Log("Enter Move State");
+    }
+
+    public override void Update()
     {
         base.Update();
         Debug.Log("Update Move State");
@@ -19,6 +27,8 @@ public class Player_MoveState : PlayerState
     {
         base.FixedUpdate();
 
-        player.SetVelocity(input.moveinput.x * player.speed, input.moveinput.y * player.speed);
+        float speed = player.Entity_Stat.GetSpeed();
+
+        player.SetVelocity(input.moveinput.x * speed, input.moveinput.y * speed);
     }
 }

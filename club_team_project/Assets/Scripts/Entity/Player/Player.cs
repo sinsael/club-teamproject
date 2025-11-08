@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Player : Entity
@@ -5,8 +6,8 @@ public class Player : Entity
     public PlayerInputHandler input { get; private set; }
 
     public Interaction interaction { get; private set; }
-    //Weapon weapon;
-    public Entity_Helth Entity_Helth { get; private set; }
+    public Entity_Stat Entity_Stat { get; private set; }
+    public Entity_Health Entity_Health { get; private set; }
     public AlertSystem alertSystem { get; private set; }
 
     //플레이어 상태
@@ -15,17 +16,13 @@ public class Player : Entity
 
 
 
-    [Header("캐릭터 상세")]
-    public int HP;
-    public int speed;
-    public float RegenDelady;
-    public float RegenHP;
-
     public override void Awake()
     {
         base.Awake();
         input = GetComponent<PlayerInputHandler>();
         interaction = GetComponent<Interaction>();
+        Entity_Stat = GetComponent<Entity_Stat>();
+        Entity_Health = GetComponent<Entity_Health>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -35,7 +32,6 @@ public class Player : Entity
     public override void Start()
     {
         base.Start();
-        
         stateMachine.Initialize(idleState);
     }
 
@@ -44,6 +40,7 @@ public class Player : Entity
     {
         base.Update();
         Intertable();
+        input.SwitchWeaponInput();
     }
 
     private void Intertable()

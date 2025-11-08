@@ -1,12 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Entity_Helth : MonoBehaviour, ITakeDamage
+public class Entity_Health : MonoBehaviour, ITakeDamage
 {
     private Entity entity;
-    private Weapon Wstat;
     private Entity_Stat entitystat;
-
 
     [SerializeField] protected float currentHealth;
     [SerializeField] protected bool isDead;
@@ -17,7 +15,6 @@ public class Entity_Helth : MonoBehaviour, ITakeDamage
     protected virtual void Awake()
     {
         entity = GetComponent<Entity>();
-        Wstat = GetComponent<Weapon>();
         entitystat = GetComponent<Entity_Stat>();
 
         if (entitystat == null)
@@ -32,12 +29,12 @@ public class Entity_Helth : MonoBehaviour, ITakeDamage
         InvokeRepeating(nameof(RegenerateHealth), 0, regenInterval);
     }
 
-    public bool TakeDamage(float damage, Transform damageDealer)
+    public bool TakeDamage(float damage)
     {
         if (isDead)
             return false;
 
-        ReduceHealth(Wstat.weaponSO.stats.Damage);
+        ReduceHealth(damage);
 
         return true;
     }
@@ -74,17 +71,5 @@ public class Entity_Helth : MonoBehaviour, ITakeDamage
     {
         isDead = true;
         entity?.EntityDeath();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

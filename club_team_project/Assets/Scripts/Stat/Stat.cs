@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stat : MonoBehaviour
+public class Stat
 {
     [SerializeField] private float baseValue;
     [SerializeField] private List<StatModifier> modifiers = new List<StatModifier>();

@@ -16,17 +16,16 @@ public class Entity_TakeDamage : MonoBehaviour
 
     public void PeformAttakc()
     {
-
         foreach (var target in GetDetectedColliders())
         {
             ITakeDamage takeDamage = target.GetComponent<ITakeDamage>();
 
-            if (takeDamage != null)
+            if (takeDamage == null)
                 continue;
 
-            float damage = weapon.weaponSO.stats.Damage;
+            float damage = weapon.entitystat.GetDamage();
 
-            bool targetGotHit = takeDamage.TakeDamage(damage,transform);
+            bool targetGotHit = takeDamage.TakeDamage(damage);
         }
     }
 

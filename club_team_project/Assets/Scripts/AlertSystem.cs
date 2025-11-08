@@ -44,8 +44,6 @@ public class AlertSystem : MonoBehaviour
 
             if (dot >= alertThreshold)
             {
-                Debug.Log("Target in sight: " + target.name);
-                targetFound = true;
                 break;
             }
         }
