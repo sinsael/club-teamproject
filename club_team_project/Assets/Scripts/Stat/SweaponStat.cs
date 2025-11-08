@@ -10,7 +10,8 @@ public class SweaponStats
     public Stat FireRate;
     public Stat MaxBullets;
     public Stat ReloadTime;
-    public Stat fov;
-    public Stat radius;
+    public Stat FovRange;
+    public Stat FovRadius;
+    public Stat RangeRadus;
 }
 

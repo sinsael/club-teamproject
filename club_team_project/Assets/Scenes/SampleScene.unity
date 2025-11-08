@@ -208,7 +208,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &160077953
 Transform:
   m_ObjectHideFlags: 0
@@ -238,13 +238,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InterCheck: {fileID: 418199386}
-  InterCheckRadius: 1.47
+  InterCheckRadius: 1.58
   WhatIsinter:
     serializedVersion: 2
     m_Bits: 0
   InterColliders: []
   interactionCheck: {fileID: 418199386}
-  interactionRadius: 1.04
+  interactionRadius: 1
   interactableLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCheck: {fileID: 418199386}
-  targetCheckRadius: 0.56
+  targetCheckRadius: 0
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 0

@@ -1,4 +1,4 @@
-public class WeaponController : IWeaponStrategy
+public class WeaponControllerBase : IWeaponAction
 {
     public Entity_Stat stats;
     public Weapon weapon;
@@ -15,7 +15,7 @@ public class WeaponController : IWeaponStrategy
         weapon.RequestAttack();
     }
 
-    public void OnReload()
+    public virtual void OnReload()
     {
     }
 }

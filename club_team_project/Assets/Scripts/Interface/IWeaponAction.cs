@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IWeaponStrategy
+public interface IWeaponAction
 {
     void Initialize(Weapon weapon, Entity_Stat stats);
     void OnAttackInput();

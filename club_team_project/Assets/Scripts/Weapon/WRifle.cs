@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WRifle :WeaponController
+public class WRifle :WeaponControllerBase
 {
     public override void Initialize(Weapon weapon, Entity_Stat stats)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WFlash :WeaponController
+public class WFlash :WeaponControllerBase
 {
     public override void Initialize(Weapon weapon, Entity_Stat stats)
     {

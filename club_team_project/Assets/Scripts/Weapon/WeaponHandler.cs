@@ -9,13 +9,13 @@ public class WeaponHandler : MonoBehaviour
 
     private Weapon weapon;
     private WeaponStatSO currentWeaponStats;
-    private Dictionary<WeaponStatSO, IWeaponStrategy> Wgun;
+    private Dictionary<WeaponStatSO, IWeaponAction> Wgun;
     private Dictionary<WeaponStatSO, int> ammoCache;
 
     void Awake()
     {
         weapon = GetComponent<Weapon>();
-        Wgun = new Dictionary<WeaponStatSO, IWeaponStrategy>
+        Wgun = new Dictionary<WeaponStatSO, IWeaponAction>
         {
            { pistolStats, new WPistol() },
             { rifleStats, new WRifle() },
@@ -65,7 +65,7 @@ public class WeaponHandler : MonoBehaviour
             Debug.Log($"[저장] {currentWeaponStats.name}의 총알: {weapon.GetCurrentAmmo()}발");
         }
         // 캐시에서 해당 스탯에 맞는 '전략(부품)'을 찾습니다.
-        if (Wgun.TryGetValue(stats, out IWeaponStrategy strategy))
+        if (Wgun.TryGetValue(stats, out IWeaponAction strategy))
         {
             int ammoToLoad = ammoCache[stats];
             Debug.Log($"===== EquipWeapon 호출 시도: {stats?.name} =====", this);

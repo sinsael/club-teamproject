@@ -1,5 +1,5 @@
 using UnityEngine;
-public class WPistol : WeaponController
+public class WPistol : WeaponControllerBase
 {
     public override void Initialize(Weapon weapon, Entity_Stat stats)
     {

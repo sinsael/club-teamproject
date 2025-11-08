@@ -16,7 +16,9 @@ MonoBehaviour:
   Damage: 0
   Range: 0
   Speed: 5
+  FireRate: 0.3
   MaxBullets: 30
   ReloadTime: 0
-  fov: 20
-  radius: 5
+  FovRange: 0
+  FovRadius: 0
+  RandgeRadius: 0

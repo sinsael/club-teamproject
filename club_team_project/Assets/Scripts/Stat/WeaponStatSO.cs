@@ -13,6 +13,7 @@ public class WeaponStatSO : ScriptableObject
     public float FireRate;
     public int MaxBullets;
     public float ReloadTime;
-    public float fov;
-    public float radius;
+    public float FovRange;
+    public float FovRadius;
+    public float RandgeRadius;
 }

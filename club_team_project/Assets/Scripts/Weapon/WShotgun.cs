@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WShotgun : WeaponController
+public class WShotgun : WeaponControllerBase
 {
     public override void Initialize(Weapon weapon, Entity_Stat stats)
     {

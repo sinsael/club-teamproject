@@ -17,8 +17,8 @@ public class Entity_Stat : MonoBehaviour
         Damage = new Stat(),
         MaxBullets = new Stat(),
         ReloadTime = new Stat(),
-        fov = new Stat(),
-        radius = new Stat(),
+        FovRange = new Stat(),
+        FovRadius = new Stat(),
         FireRate = new Stat()
     };
 
@@ -60,21 +60,29 @@ public class Entity_Stat : MonoBehaviour
         return weaponstat.FireRate.GetValue();
     }
 
-    public float GetFov()
+    public float GetFovRange()
     {
-        if (weaponstat.fov == null)
+        if (weaponstat.FovRange == null)
         {
             return 0f;
         }
-        return weaponstat.fov.GetValue();
+        return weaponstat.FovRadius.GetValue();
     }
-    public float GetRadius()
+    public float GetFovRadius()
     {
-        if (weaponstat.radius == null)
+        if (weaponstat.FovRadius == null)
         {
             return 0f;
         }
-        return weaponstat.radius.GetValue();
+        return weaponstat.FovRadius.GetValue();
+    }
+    public float GetRangeRadius()
+    {
+        if (weaponstat.RangeRadus == null)
+        {
+            return 0f;
+        }
+        return weaponstat.RangeRadus.GetValue();
     }
 
     public void EquipNewWeapon(WeaponStatSO newWeaponStats)
@@ -89,8 +97,8 @@ public class Entity_Stat : MonoBehaviour
             weaponstat.Speed.SetBaseValue(1f);
             weaponstat.MaxBullets.SetBaseValue(0);
             weaponstat.ReloadTime.SetBaseValue(0);
-            weaponstat.fov.SetBaseValue(0);
-            weaponstat.radius.SetBaseValue(0);
+            weaponstat.FovRange.SetBaseValue(0);
+            weaponstat.FovRadius.SetBaseValue(0);
             weaponstat.FireRate.SetBaseValue(0);
             return;
         }
@@ -100,9 +108,10 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.Range.SetBaseValue(newWeaponStats.Range);
         weaponstat.MaxBullets.SetBaseValue(newWeaponStats.MaxBullets);
         weaponstat.ReloadTime.SetBaseValue(newWeaponStats.ReloadTime);
-        weaponstat.fov.SetBaseValue(newWeaponStats.fov);
-        weaponstat.radius.SetBaseValue(newWeaponStats.radius);
+        weaponstat.FovRange.SetBaseValue(newWeaponStats.FovRange);
+        weaponstat.FovRadius.SetBaseValue(newWeaponStats.FovRadius);
         weaponstat.FireRate.SetBaseValue(newWeaponStats.FireRate);
+        weaponstat.RangeRadus.SetBaseValue(newWeaponStats.RandgeRadius);
     }
 
     public Stat GetStatByType(StatType type)
@@ -116,9 +125,10 @@ public class Entity_Stat : MonoBehaviour
             case StatType.range: return weaponstat.Range;
             case StatType.MaxBullets: return weaponstat.MaxBullets;
             case StatType.ReloadTime: return weaponstat.ReloadTime;
-            case StatType.fov: return weaponstat.fov;
-            case StatType.radius: return weaponstat.radius;
+            case StatType.FovRange: return weaponstat.FovRange;
+            case StatType.FovRadius: return weaponstat.FovRadius;
             case StatType.fireRate: return weaponstat.FireRate;
+            case StatType.RangeRadius: return weaponstat.RangeRadus;
 
             default:
                 Debug.LogWarning($"StatType {type} not implemented yet.");
@@ -142,8 +152,8 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.Range.SetBaseValue(defaultStatWeaponSetup.Range);
         weaponstat.MaxBullets.SetBaseValue(defaultStatWeaponSetup.MaxBullets);
         weaponstat.ReloadTime.SetBaseValue(defaultStatWeaponSetup.ReloadTime);
-        weaponstat.fov.SetBaseValue(defaultStatWeaponSetup.fov);
-        weaponstat.radius.SetBaseValue(defaultStatWeaponSetup.radius);
+        weaponstat.FovRange.SetBaseValue(defaultStatWeaponSetup.FovRange);
+        weaponstat.FovRadius.SetBaseValue(defaultStatWeaponSetup.FovRadius);
         weaponstat.FireRate.SetBaseValue(defaultStatWeaponSetup.FireRate);
 
     }

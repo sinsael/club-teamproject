@@ -53,7 +53,6 @@ public class Stat
     }
 }
 
-[Serializable]
 public class StatModifier
 {
     public float value;

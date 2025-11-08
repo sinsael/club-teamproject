@@ -5,7 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Entity_Stat entitystat { get; private set; }
-    private IWeaponStrategy currentStrategy;
+    private IWeaponAction currentStrategy;
 
     [Header("Weapon State")]
     [SerializeField] private int currentBullets;
@@ -34,10 +34,6 @@ public class Weapon : MonoBehaviour
         {
             currentStrategy?.OnAttackInput();
         }
-        if (Input.GetButtonUp("Fire1")) // '공격' 버튼 뗌
-        {
-            // currentStrategy?.OnAttackInputReleased();
-        }
     }
     [ContextMenu("테스트")]
     public void RequestAttack()
@@ -59,14 +55,14 @@ public class Weapon : MonoBehaviour
         StartCoroutine(AttackCooldownRoutine());
     }
 
-    public void EquipNewWeapon(WeaponStatSO stats, IWeaponStrategy strategy, int ammoToLoad)
+    public void EquipNewWeapon(WeaponStatSO stats, IWeaponAction strategy, int ammoToLoad)
     {
         entitystat.EquipNewWeapon(stats);
 
         currentStrategy = strategy;
         currentStrategy.Initialize(this, entitystat);
 
-        currentBullets = ammoToLoad; // (O) 핸들러가 전달해준 장탄수로 설정
+        currentBullets = ammoToLoad;
 
         isReloading = false;
         isAttackCooldown = false;
@@ -87,7 +83,6 @@ public class Weapon : MonoBehaviour
             Debug.LogWarning($"[Weapon] {name}의 공격 속도가 0 이하입니다. 기본값 1초로 설정합니다.");
         }
 
-
         yield return new WaitForSeconds(attackSpeed);
 
         isAttackCooldown = false;
@@ -103,8 +98,9 @@ public class Weapon : MonoBehaviour
         if (entitystat == null) return; // 그래도 없으면 중단
 
         // 2. Update() 대신, OnDrawGizmos가 매번 직접 스탯 값을 가져옵니다.
-        float currentFov = entitystat.GetFov();
-        float currentRadius = entitystat.GetRadius();
+        float currentFov = entitystat.GetFovRadius();
+        float currentRadius = entitystat.GetFovRadius();
+        float currentRange = entitystat.GetRangeRadius();
 
         // 3. 값이 유효할 때만 그립니다.
         if (currentFov <= 0 || currentRadius <= 0)
@@ -118,5 +114,7 @@ public class Weapon : MonoBehaviour
         Vector2 startDirection = Quaternion.Euler(0, 0, -currentFov / 2) * myUp;
 
         Handles.DrawSolidArc(transform.position, Vector3.forward, startDirection, currentFov, currentRadius);
+
+        Gizmos.DrawWireSphere(transform.position, currentRange);
     }
 }
