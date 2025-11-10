@@ -1,9 +1,9 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class Player : Entity
 {
     public PlayerInputHandler input { get; private set; }
+    public Weapon Weapon { get; private set; }
 
     public Interaction interaction { get; private set; }
     public Entity_Stat Entity_Stat { get; private set; }
@@ -14,6 +14,9 @@ public class Player : Entity
     public Player_MoveState moveState { get; private set; }
 
 
+    // 캐릭터 마우스 포인터 따라가기
+    private Camera maincamera;
+
 
     public override void Awake()
     {
@@ -22,6 +25,7 @@ public class Player : Entity
         interaction = GetComponent<Interaction>();
         Entity_Stat = GetComponent<Entity_Stat>();
         Entity_Health = GetComponent<Entity_Health>();
+        Weapon = GetComponent<Weapon>();
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -32,14 +36,40 @@ public class Player : Entity
     {
         base.Start();
         stateMachine.Initialize(idleState);
+        maincamera = Camera.main;
     }
 
     // Update is called once per frame
     public override void Update()
     {
         base.Update();
+        Shoot();
+        HandleMouseRotation();
         Intertable();
         input.SwitchWeaponInput();
+    }
+
+    private void HandleMouseRotation()
+    {
+        if (maincamera == null) return;
+
+        Vector3 mouseScreenPos = Input.mousePosition;
+
+        mouseScreenPos.z = maincamera.WorldToScreenPoint(transform.position).z;
+
+        Vector3 mouseWorldPos = maincamera.ScreenToWorldPoint(mouseScreenPos);
+
+        Vector2 direction = (mouseWorldPos - transform.position).normalized;
+
+        transform.up = direction;
+    }
+
+    public void Shoot()
+    {
+        if (input.shoot)
+        {
+            Weapon?.HandleAttack();
+        }
     }
 
     private void Intertable()
@@ -61,5 +91,5 @@ public class Player : Entity
         Gizmos.DrawWireSphere(interaction.interactionCheck.position, interaction.interactionRadius);
     }
 
-  
+
 }

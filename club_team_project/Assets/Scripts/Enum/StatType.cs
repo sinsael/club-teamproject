@@ -5,11 +5,11 @@ public enum StatType
     Damage,
     FovRange,
     FovRadius,
-    RangeRadius,
     range,
     Bullets,
     Speed,
     MaxBullets,
     ReloadTime,
-    fireRate
+    fireRate,
+    BulletSpeed
 }

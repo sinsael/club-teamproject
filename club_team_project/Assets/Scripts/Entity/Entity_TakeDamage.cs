@@ -14,7 +14,7 @@ public class Entity_TakeDamage : MonoBehaviour
         weapon = GetComponent<Weapon>();
     }
 
-    public void PeformAttakc()
+    public void PerformAttakck()
     {
         foreach (var target in GetDetectedColliders())
         {

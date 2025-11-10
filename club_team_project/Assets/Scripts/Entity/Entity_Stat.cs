@@ -19,7 +19,8 @@ public class Entity_Stat : MonoBehaviour
         ReloadTime = new Stat(),
         FovRange = new Stat(),
         FovRadius = new Stat(),
-        FireRate = new Stat()
+        FireRate = new Stat(),
+        BulletSpeed = new Stat()
     };
 
 
@@ -76,13 +77,10 @@ public class Entity_Stat : MonoBehaviour
         }
         return weaponstat.FovRadius.GetValue();
     }
-    public float GetRangeRadius()
+
+    public float GetBulletSpeed()
     {
-        if (weaponstat.RangeRadus == null)
-        {
-            return 0f;
-        }
-        return weaponstat.RangeRadus.GetValue();
+        return weaponstat.BulletSpeed.GetValue();
     }
 
     public void EquipNewWeapon(WeaponStatSO newWeaponStats)
@@ -100,6 +98,7 @@ public class Entity_Stat : MonoBehaviour
             weaponstat.FovRange.SetBaseValue(0);
             weaponstat.FovRadius.SetBaseValue(0);
             weaponstat.FireRate.SetBaseValue(0);
+            weaponstat.BulletSpeed.SetBaseValue(0);
             return;
         }
 
@@ -111,7 +110,7 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.FovRange.SetBaseValue(newWeaponStats.FovRange);
         weaponstat.FovRadius.SetBaseValue(newWeaponStats.FovRadius);
         weaponstat.FireRate.SetBaseValue(newWeaponStats.FireRate);
-        weaponstat.RangeRadus.SetBaseValue(newWeaponStats.RandgeRadius);
+        weaponstat.BulletSpeed.SetBaseValue(newWeaponStats.BulletSpeed);
     }
 
     public Stat GetStatByType(StatType type)
@@ -128,7 +127,7 @@ public class Entity_Stat : MonoBehaviour
             case StatType.FovRange: return weaponstat.FovRange;
             case StatType.FovRadius: return weaponstat.FovRadius;
             case StatType.fireRate: return weaponstat.FireRate;
-            case StatType.RangeRadius: return weaponstat.RangeRadus;
+            case StatType.BulletSpeed: return weaponstat.BulletSpeed;
 
             default:
                 Debug.LogWarning($"StatType {type} not implemented yet.");
@@ -155,6 +154,7 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.FovRange.SetBaseValue(defaultStatWeaponSetup.FovRange);
         weaponstat.FovRadius.SetBaseValue(defaultStatWeaponSetup.FovRadius);
         weaponstat.FireRate.SetBaseValue(defaultStatWeaponSetup.FireRate);
+        weaponstat.BulletSpeed.SetBaseValue(defaultStatWeaponSetup.BulletSpeed);
 
     }
 }

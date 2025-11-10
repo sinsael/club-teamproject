@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: ShotgunData
   m_EditorClassIdentifier: 
   weaponType: 2
+  bulletPrefab: {fileID: 0}
+  muzzleflashPrefab: {fileID: 0}
   Damage: 0
   Range: 1
   Speed: 1
   FireRate: 0.3
   MaxBullets: 130
-  ReloadTime: 0
+  ReloadTime: 1.5
   FovRange: 0
   FovRadius: 0
-  RandgeRadius: 0
+  BulletSpeed: 0
