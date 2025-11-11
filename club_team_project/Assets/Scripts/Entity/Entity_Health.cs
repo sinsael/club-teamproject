@@ -39,6 +39,8 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
         if (isDead)
             return false;
 
+        Debug.Log($"{name} took {damage} damage.");
+
         ReduceHealth(damage);
 
         return true;

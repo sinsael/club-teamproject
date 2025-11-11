@@ -15,8 +15,8 @@ MonoBehaviour:
   weaponType: 3
   bulletPrefab: {fileID: 7564517103262747030, guid: 12917e5e18eba934281f0b9d9d4ff1c5, type: 3}
   muzzleflashPrefab: {fileID: 8920877293332982905, guid: c7d97083398fe9841911e91ce0be6ac7, type: 3}
-  Damage: 0
-  Range: 0
+  Damage: 10
+  Range: 3
   Speed: 5
   FireRate: 0.3
   MaxBullets: 30
@@ -24,3 +24,7 @@ MonoBehaviour:
   FovRange: 3
   FovRadius: 3
   BulletSpeed: 10
+  ShotgunRange: 0
+  ShotgunRadius: 0
+  FlashbangDuration: 0
+  FlashbangRadius: 0

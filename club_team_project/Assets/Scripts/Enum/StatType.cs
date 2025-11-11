@@ -11,5 +11,9 @@ public enum StatType
     MaxBullets,
     ReloadTime,
     fireRate,
-    BulletSpeed
+    BulletSpeed,
+    ShotgunRange,
+    ShotgunRadius,
+    FlashbangDuration,
+    FlashbangRadius
 }

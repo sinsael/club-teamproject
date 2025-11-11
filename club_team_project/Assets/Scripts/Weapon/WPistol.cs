@@ -26,6 +26,7 @@ public class WPistol : WeaponControllerBase
         {
             bulletScript.damage = stats.GetDamage();
             bulletScript.bulletSpeed = stats.GetBulletSpeed();
+            bulletScript.maxRange = stats.GetRange();
         }
     }
 }

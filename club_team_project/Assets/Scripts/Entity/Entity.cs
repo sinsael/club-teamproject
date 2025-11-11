@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+public class Entity : MonoBehaviour, ITakeStun
 {
     public Rigidbody2D rb { get; private set; }
     public Animator anim { get; private set; }
@@ -20,12 +20,12 @@ public class Entity : MonoBehaviour
 
     public virtual void Update()
     {
-        stateMachine.UpdateActiveState();
+        stateMachine?.UpdateActiveState();
     }
 
     public virtual void FixedUpdate()
     { 
-       stateMachine.FixedUpdateActiveState();
+       stateMachine?.FixedUpdateActiveState();
     }
 
     public virtual void SetVelocity(float Xvelocity, float Yvelocity)
@@ -35,4 +35,8 @@ public class Entity : MonoBehaviour
 
     public virtual void EntityDeath()
     { }
+
+    public virtual void OnStun(float duration)
+    {
+    }
 }

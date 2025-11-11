@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Player : Entity
 {
@@ -14,8 +15,17 @@ public class Player : Entity
     public Player_MoveState moveState { get; private set; }
 
 
-    // 캐릭터 마우스 포인터 따라가기
     private Camera maincamera;
+    [SerializeField] private GameObject whiteScreenPanel;
+
+    [Header("Flashbang Grenade")]
+    [SerializeField] private GameObject flashbangPrefab;
+    [SerializeField] private WeaponStatSO flashbangWeaponStat;
+    [SerializeField] private float flashbangCooldown = 5f;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private LayerMask whatIsTarget;
+
+    private float flashbangTimer = 0f;
 
 
     public override void Awake()
@@ -43,12 +53,28 @@ public class Player : Entity
     public override void Update()
     {
         base.Update();
+
+        if(flashbangTimer > 0)
+        {
+            flashbangTimer -= Time.deltaTime;
+        }
+
         Shoot();
         HandleMouseRotation();
         Intertable();
         input.SwitchWeaponInput();
+        ThrowFlashbang();
     }
+    public override void OnStun(float duration)
+    {
+        base.OnStun(duration);
+        // 이미 스턴 상태라면 중복 실행 방지 (선택적)
+        if (whiteScreenPanel != null && whiteScreenPanel.activeInHierarchy)
+            return;
 
+        Debug.Log($"[플레이어] 섬광탄에 {duration}초 동안 스턴!");
+        StartCoroutine(CoShowWhiteScreen(duration));
+    }
     private void HandleMouseRotation()
     {
         if (maincamera == null) return;
@@ -78,6 +104,37 @@ public class Player : Entity
         {
             interaction.Interact();
         }
+    }
+
+    private void ThrowFlashbang()
+    {
+        if (input.flash && flashbangTimer <= 0)
+        {
+            flashbangTimer = flashbangCooldown;
+
+            GameObject grenadeObj = Instantiate(flashbangPrefab, firePoint.position, firePoint.rotation);
+            FlashbangGrenade grenadeScript = grenadeObj.GetComponent<FlashbangGrenade>();
+
+            float radius = flashbangWeaponStat.FlashbangRadius;
+            float duration = flashbangWeaponStat.FlashbangDuration;
+            float speed = flashbangWeaponStat.BulletSpeed;
+
+            grenadeScript.Initialize(radius, duration, speed, whatIsTarget);
+        }
+    }
+
+    private IEnumerator CoShowWhiteScreen(float duration)
+    {
+        // 1. 하얀 패널을 켠다
+        if (whiteScreenPanel != null)
+            whiteScreenPanel.SetActive(true);
+
+        // 2. duration(스턴 시간)만큼 기다린다
+        yield return new WaitForSeconds(duration);
+
+        // 3. 하얀 패널을 다시 끈다
+        if (whiteScreenPanel != null)
+            whiteScreenPanel.SetActive(false);
     }
 
     protected void OnDrawGizmos()

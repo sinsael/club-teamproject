@@ -12,12 +12,25 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab { get; private set; }
     public GameObject muzzleflashPrefab { get; private set; }
 
+    public float RiflebetweenShots;
+    public int ShootBullet;
+    public bool isShooting { get; private set; }
+
+    private float burstFireTimer;
+    private int shotsFiredInBurst;
+
     [Header("Weapon State")]
     [SerializeField] private int currentBullets;
     [SerializeField] private bool isReloading;
     [SerializeField] private bool isAttackCooldown;
 
     private Color color = new Color(0, 1, 0, 0.3f);
+
+    public bool IsWeaponBusy()
+    {
+        // 점사 중이거나, 공격 쿨다운 중이거나, 재장전 중이면 true 반환
+        return isShooting || isAttackCooldown || isReloading;
+    }
 
     public int GetCurrentAmmo()
     {
@@ -33,8 +46,70 @@ public class Weapon : MonoBehaviour
     {
     }
 
+    private void Update()
+    {
+        HandleBurstFire();
+    }
+    public void StartRifleShoot()
+    {
+        // 쿨다운/재장전/이미 점사중이면 시작 안함
+        if (isAttackCooldown || isReloading || isShooting)
+        {
+            return;
+        }
+
+        // 탄약 체크
+        if (currentBullets == 0)
+        {
+            StartCoroutine(CoReload());
+            return;
+        }
+
+        // 점사 상태로 전환
+        isShooting = true;
+        shotsFiredInBurst = 0;
+        burstFireTimer = 0f; // 즉시 첫 발 발사
+    }
+
+    private void HandleBurstFire()
+    {
+        if (!isShooting) return;
+
+        // 타이머가 0 이하가 되면 발사
+        if (burstFireTimer <= 0f)
+        {
+            // 1. 실제 발사 로직 호출
+            RequestAttack(); // (이 안에서 WRifle.PerformAttack()가 불림)
+            shotsFiredInBurst++;
+
+            // 2. 점사가 끝났는지 확인 (혹은 탄창이 비었는지)
+            if (shotsFiredInBurst >= ShootBullet || currentBullets == 0)
+            {
+                // 점사 완료
+                isShooting = false;
+                // "점사가 끝난 후"에 전체 공격 쿨다운 시작
+                StartCoroutine(CoStartAttackCooldown());
+            }
+            else
+            {
+                // 3. 다음 발사를 위해 타이머 재설정
+                burstFireTimer = RiflebetweenShots;
+            }
+        }
+        else
+        {
+            // 타이머 시간 감소
+            burstFireTimer -= Time.deltaTime;
+        }
+    }
+
     public void HandleAttack()
     {
+        if (isReloading || isAttackCooldown)
+        {
+            return;
+        }
+
         currentStrategy?.OnAttackInput();
     }
 
@@ -57,7 +132,7 @@ public class Weapon : MonoBehaviour
 
         currentStrategy?.PerformAttack();
 
-        StartCoroutine(AttackCooldownRoutine());
+        StartCoroutine(CoStartAttackCooldown());
     }
 
     public void EquipNewWeapon(WeaponStatSO stats, IWeaponAction strategy, int ammoToLoad)
@@ -76,10 +151,9 @@ public class Weapon : MonoBehaviour
         StopAllCoroutines();
 
         Debug.Log($"{stats.weaponType} 장착! 전략: {strategy.GetType().Name}");
-
     }
 
-    private IEnumerator AttackCooldownRoutine()
+    private IEnumerator CoStartAttackCooldown()
     {
         isAttackCooldown = true;
         float attackSpeed = entitystat.GetFireRate();
@@ -95,6 +169,15 @@ public class Weapon : MonoBehaviour
         isAttackCooldown = false;
     }
 
+    private IEnumerator CoReload()
+    {
+        isReloading = true;
+        float reloadTime = entitystat.GetReloadTime();
+        yield return new WaitForSeconds(reloadTime);
+        currentBullets = (int)entitystat.GetStatByType(StatType.MaxBullets).GetValue();
+        isReloading = false;
+    }
+
     private void OnDrawGizmos()
     {
         // 1. entitystat이 null일 경우(Awake 전) 대비
@@ -104,6 +187,8 @@ public class Weapon : MonoBehaviour
         }
         if (entitystat == null) return; // 그래도 없으면 중단
 
+        Vector3 rangeCenter = (transform.position != null) ? firePoint.position : transform.position;
+
         // 2. Update() 대신, OnDrawGizmos가 매번 직접 스탯 값을 가져옵니다.
         float currentFov = entitystat.GetFovRadius();
         float currentRadius = entitystat.GetFovRadius();
@@ -112,25 +197,29 @@ public class Weapon : MonoBehaviour
         // 3. 값이 유효할 때만 그립니다.
         if (currentFov <= 0 || currentRadius <= 0)
         {
-            return;
+            Handles.color = color;
+
+            Vector2 myUp = transform.rotation * Vector3.up;
+            Vector2 startDirection = Quaternion.Euler(0, 0, -360 / 2) * myUp;
+            Handles.DrawSolidArc(transform.position, Vector3.forward, startDirection, 360, currentRadius);
         }
 
-        Handles.color = color;
+        if (currentRange > 0)
+        {
+            Gizmos.color = Color.white; // 총알 사거리는 다른 색으로
+            // [수정] 기즈모의 중심을 transform.position이 아닌 rangeCenter(총구)로 변경
+            Gizmos.DrawWireSphere(rangeCenter, currentRange);
+        }
 
-        Vector2 myUp = transform.rotation * Vector3.up;
-        Vector2 startDirection = Quaternion.Euler(0, 0, -currentFov / 2) * myUp;
-
-        Handles.DrawSolidArc(transform.position, Vector3.forward, startDirection, currentFov, currentRadius);
-
-        Gizmos.DrawWireSphere(transform.position, currentRange);
+        float currentShotgunRange = entitystat.GetShotgunRange();
+        float currentShotgunRadius = entitystat.GetShotgunRadius();
+        if (currentShotgunRange > 0 && currentShotgunRadius > 0)
+        {
+            Handles.color = Color.yellow; // 샷건 범위는 노란색으로
+            Vector2 myUp = transform.rotation * Vector3.up;
+            Vector2 startDirection = Quaternion.Euler(0, 0, -currentShotgunRange / 2) * myUp;
+            Handles.DrawSolidArc(transform.position, Vector3.forward, startDirection, currentShotgunRange, currentShotgunRadius);
+        }
     }
 
-    private IEnumerator CoReload()
-    {
-        isReloading = true;
-        float reloadTime = entitystat.GetReloadTime();
-        yield return new WaitForSeconds(reloadTime);
-        currentBullets = (int)entitystat.GetStatByType(StatType.MaxBullets).GetValue();
-        isReloading = false;
-    }
 }

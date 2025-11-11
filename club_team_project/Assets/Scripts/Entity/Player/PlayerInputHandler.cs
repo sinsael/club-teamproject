@@ -6,11 +6,13 @@ public class PlayerInputHandler : MonoBehaviour
     public PlayerInputSet input { get; private set; }
     public Vector2 moveinput { get; set; }
     public WeaponHandler WeaponHandler { get; private set; }
+    public Weapon weapon { get; private set; }
 
     void Awake()
     {
         input = new PlayerInputSet();
         WeaponHandler = GetComponent<WeaponHandler>();
+        weapon = GetComponent<Weapon>();
     }
 
     void OnEnable()
@@ -35,6 +37,11 @@ public class PlayerInputHandler : MonoBehaviour
     public bool click => input.Player.Click.WasPressedThisFrame();
     public void SwitchWeaponInput()
     {
+        if (weapon != null && weapon.IsWeaponBusy())
+        {
+            return;
+        }
+
         if (input.Player.SwitchPistol.WasPressedThisFrame())
         {
             WeaponHandler.EquipPistol();
@@ -48,4 +55,5 @@ public class PlayerInputHandler : MonoBehaviour
             WeaponHandler.EquipShotgun();
         }
     }
+    public bool flash => input.Player.SwitchFlash.WasPressedThisFrame();
 }

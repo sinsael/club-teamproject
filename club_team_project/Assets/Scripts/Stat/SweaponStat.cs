@@ -13,5 +13,9 @@ public class SweaponStats
     public Stat FovRange;
     public Stat FovRadius;
     public Stat BulletSpeed;
+    public Stat ShotgunRange;
+    public Stat ShotgunRadius;
+    public Stat FlashbangDuration;
+    public Stat FlashbangRadius;
 }
 

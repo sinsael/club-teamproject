@@ -20,7 +20,11 @@ public class Entity_Stat : MonoBehaviour
         FovRange = new Stat(),
         FovRadius = new Stat(),
         FireRate = new Stat(),
-        BulletSpeed = new Stat()
+        BulletSpeed = new Stat(),
+        ShotgunRadius = new Stat(),
+        ShotgunRange = new Stat(),
+        FlashbangDuration = new Stat(),
+        FlashbangRadius = new Stat()
     };
 
 
@@ -78,9 +82,28 @@ public class Entity_Stat : MonoBehaviour
         return weaponstat.FovRadius.GetValue();
     }
 
+    public float GetShotgunRadius()
+    {
+        return weaponstat.ShotgunRadius.GetValue();
+    }
+    public float GetShotgunRange()
+    {
+        return weaponstat.ShotgunRange.GetValue();
+    }
+
     public float GetBulletSpeed()
     {
         return weaponstat.BulletSpeed.GetValue();
+    }
+
+    public float GetFlashbangDuration()
+    {
+        return weaponstat.FlashbangDuration.GetValue();
+    }
+
+    public float GetFlashbangRadius()
+    {
+        return weaponstat.FlashbangRadius.GetValue();
     }
 
     public void EquipNewWeapon(WeaponStatSO newWeaponStats)
@@ -99,6 +122,10 @@ public class Entity_Stat : MonoBehaviour
             weaponstat.FovRadius.SetBaseValue(0);
             weaponstat.FireRate.SetBaseValue(0);
             weaponstat.BulletSpeed.SetBaseValue(0);
+            weaponstat.ShotgunRange.SetBaseValue(0);
+            weaponstat.ShotgunRadius.SetBaseValue(0);
+            weaponstat.FlashbangDuration.SetBaseValue(0);
+            weaponstat.FlashbangRadius.SetBaseValue(0);
             return;
         }
 
@@ -111,6 +138,10 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.FovRadius.SetBaseValue(newWeaponStats.FovRadius);
         weaponstat.FireRate.SetBaseValue(newWeaponStats.FireRate);
         weaponstat.BulletSpeed.SetBaseValue(newWeaponStats.BulletSpeed);
+        weaponstat.ShotgunRange.SetBaseValue(newWeaponStats.ShotgunRange);
+        weaponstat.ShotgunRadius.SetBaseValue(newWeaponStats.ShotgunRadius);
+        weaponstat.FlashbangDuration.SetBaseValue(newWeaponStats.FlashbangDuration);
+        weaponstat.FlashbangRadius.SetBaseValue(newWeaponStats.FlashbangRadius);
     }
 
     public Stat GetStatByType(StatType type)
@@ -128,6 +159,10 @@ public class Entity_Stat : MonoBehaviour
             case StatType.FovRadius: return weaponstat.FovRadius;
             case StatType.fireRate: return weaponstat.FireRate;
             case StatType.BulletSpeed: return weaponstat.BulletSpeed;
+            case StatType.ShotgunRange: return weaponstat.ShotgunRange;
+            case StatType.ShotgunRadius: return weaponstat.ShotgunRadius;
+            case StatType.FlashbangDuration: return weaponstat.FlashbangDuration;
+            case StatType.FlashbangRadius: return weaponstat.FlashbangRadius;
 
             default:
                 Debug.LogWarning($"StatType {type} not implemented yet.");
@@ -155,6 +190,10 @@ public class Entity_Stat : MonoBehaviour
         weaponstat.FovRadius.SetBaseValue(defaultStatWeaponSetup.FovRadius);
         weaponstat.FireRate.SetBaseValue(defaultStatWeaponSetup.FireRate);
         weaponstat.BulletSpeed.SetBaseValue(defaultStatWeaponSetup.BulletSpeed);
+        weaponstat.ShotgunRange.SetBaseValue(defaultStatWeaponSetup.ShotgunRange);
+        weaponstat.ShotgunRadius.SetBaseValue(defaultStatWeaponSetup.ShotgunRadius);
+        weaponstat.FlashbangDuration.SetBaseValue(defaultStatWeaponSetup.FlashbangDuration);
+        weaponstat.FlashbangRadius.SetBaseValue(defaultStatWeaponSetup.FlashbangRadius);
 
     }
 }

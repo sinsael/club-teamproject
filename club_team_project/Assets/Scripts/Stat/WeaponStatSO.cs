@@ -20,4 +20,10 @@ public class WeaponStatSO : ScriptableObject
     public float FovRange;
     public float FovRadius;
     public float BulletSpeed;
+    [Header("¼¦°Ç Àü¿ë")]
+    public float ShotgunRange;
+    public float ShotgunRadius;
+    [Header("¼¶±¤Åº Àü¿ë")]
+    public float FlashbangDuration;
+    public float FlashbangRadius;
 }

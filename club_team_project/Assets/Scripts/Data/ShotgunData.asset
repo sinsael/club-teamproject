@@ -15,12 +15,16 @@ MonoBehaviour:
   weaponType: 2
   bulletPrefab: {fileID: 0}
   muzzleflashPrefab: {fileID: 0}
-  Damage: 0
+  Damage: 99999
   Range: 1
   Speed: 1
   FireRate: 0.3
   MaxBullets: 130
   ReloadTime: 1.5
-  FovRange: 0
-  FovRadius: 0
+  FovRange: 50
+  FovRadius: 20
   BulletSpeed: 0
+  ShotgunRange: 40
+  ShotgunRadius: 10
+  FlashbangDuration: 0
+  FlashbangRadius: 0
