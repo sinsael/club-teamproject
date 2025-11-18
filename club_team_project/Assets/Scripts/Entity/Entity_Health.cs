@@ -14,8 +14,14 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
 
     protected void Awake()
     {
-        entity = GetComponent<Entity>();
-        entitystat = GetComponent<Entity_Stat>();
+        entity = GetComponentInParent<Entity>();
+        entitystat = GetComponentInParent<Entity_Stat>();
+
+        if (entitystat == null)
+        {
+            Debug.LogError($"[Entity_Health] {name} 오브젝트에 Entity_Stat이 없습니다!", this);
+            return;
+        }
 
         if (entitystat == null)
         {
@@ -77,6 +83,15 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
     protected virtual void Die()
     {
         isDead = true;
-        entity?.EntityDeath();
+        // [수정 2] entity가 연결되어 있는지 확인하고 호출
+        if (entity != null)
+        {
+            Debug.Log($"{name} 사망!"); // 확인용 로그
+            entity.EntityDeath();
+        }
+        else
+        {
+            Debug.LogError($"{name}의 entity 변수가 비어있어서 죽을 수 없습니다!");
+        }
     }
 }

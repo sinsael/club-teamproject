@@ -17,8 +17,8 @@ public class Enemy_Ai : MonoBehaviour
 
     [Header("시야각 감지")]
     [SerializeField] private float playerAlertradius;
-    [SerializeField] private float alertThreshold = 0.5f;
-    float playerAlertfov;
+    [SerializeField]float playerAlertfov;
+    private float alertThreshold = 0.5f;
 
     [Header("사격 범위 설정")]
     [SerializeField] private Transform ShootRangeCheck;
@@ -32,8 +32,14 @@ public class Enemy_Ai : MonoBehaviour
     private Collider2D[] shootCheckBuffer = new Collider2D[5];
     private ContactFilter2D playerFilter;
 
+    private Weapon weapon;
+    private Rigidbody2D rb;
+
     void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
+        weapon = GetComponent<Weapon>();
+
         playerFilter = new ContactFilter2D();
         playerFilter.SetLayerMask(WhatIsPlayer);
     }
@@ -42,6 +48,12 @@ public class Enemy_Ai : MonoBehaviour
     {
          alertThreshold = Mathf.Cos(playerAlertfov / 2 * Mathf.Deg2Rad);
         currentState = EnemyState.Idle;
+
+        WeaponHandler handler = GetComponent<WeaponHandler>();
+        if(handler != null)
+        {
+            handler.EquipRifle();
+        }
     }
 
     void Update()
@@ -75,6 +87,7 @@ public class Enemy_Ai : MonoBehaviour
     private void HandleChasingState()
     {
         Debug.Log("추격");
+        LookAtPlayer();
         ChasePlayer();
 
         if (PlayerInShootRange())
@@ -87,7 +100,6 @@ public class Enemy_Ai : MonoBehaviour
 
     private void HandleShootingState()
     {
-        Debug.Log("쏜다");
         LookAtPlayer();
 
         if (!PlayerInShootRange())
@@ -172,33 +184,56 @@ public class Enemy_Ai : MonoBehaviour
 
     private void ChasePlayer()
     {
-        // 추적 시스템
-        Debug.Log("추적");
+        if (playerTarget != null)
+        {
+            Vector2 targetPos = Vector2.MoveTowards(rb.position, playerTarget.position, moveSpeed * Time.deltaTime);
+            rb.MovePosition(targetPos);
+        }
     }
 
     private void StopMovement()
     {
-        Debug.Log("정지!");
+        rb.linearVelocity = Vector2.zero;
     }
 
     private void LookAtPlayer()
     {
-        // 플레이어 바라보기
+        if (playerTarget != null)
+        {
+            Vector2 direction = playerTarget.position - transform.position;
+            // Atan2를 사용하여 각도 계산 (y, x 순서 주의)
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // 스프라이트가 위쪽(Up)이 앞이라면 -90도 보정 필요
+            rb.rotation = angle - 90f;
+        }
     }
 
     private void Shoot()
     {
-        Debug.Log("사격!");
+        if (weapon != null)
+        {
+            weapon.HandleAttack();
+        }
     }
-
+#if UNITY_EDITOR
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(ShootRangeCheck.position, ShootRangeCheckRadius);
+        // 1. 사격 범위 (파란 원)
+        if (ShootRangeCheck != null)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(ShootRangeCheck.position, ShootRangeCheckRadius);
+        }
+        if (playerAlertfov > 0 && playerAlertradius > 0)
+        {
+            // 색상을 살짝 투명한 빨간색으로 설정
+            Handles.color = new Color(1f, 0f, 0f, 0.2f);
 
-        Vector2 myUp = transform.rotation * Vector3.up;
-        Vector2 startDirection = Quaternion.Euler(0, 0, -playerAlertfov / 2) * myUp;
+            Vector2 myUp = transform.rotation * Vector3.up;
+            Vector2 startDirection = Quaternion.Euler(0, 0, -playerAlertfov / 2) * myUp;
 
-        Handles.DrawSolidArc(transform.position, Vector3.forward, startDirection, playerAlertfov, playerAlertradius);
+            Handles.DrawSolidArc(transform.position, Vector3.forward, startDirection, playerAlertfov, playerAlertradius);
+        }
     }
+#endif
 }

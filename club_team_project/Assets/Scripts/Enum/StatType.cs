@@ -15,5 +15,6 @@ public enum StatType
     ShotgunRange,
     ShotgunRadius,
     FlashbangDuration,
-    FlashbangRadius
+    FlashbangRadius,
+    FlashbangSpeed
 }

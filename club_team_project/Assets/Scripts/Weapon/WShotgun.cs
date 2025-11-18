@@ -4,17 +4,10 @@ public class WShotgun : WeaponControllerBase
 {
     // [추가] 우리가 업그레이드한 '공격 도구' 참조
     private Entity_TakeDamage entityAttack;
-
+    private const int BulletCount = 5;
     public override void Initialize(Weapon weapon, Entity_Stat stats)
     {
         base.Initialize(weapon, stats);
-
-        // [추가] '공격 도구'를 미리 찾아둡니다.
-        entityAttack = weapon.GetComponent<Entity_TakeDamage>();
-        if (entityAttack == null)
-        {
-            Debug.LogError("샷건을 사용하려면 Entity_Attack 컴포넌트가 필요합니다!");
-        }
     }
 
     public override void OnAttackInput()
@@ -24,21 +17,48 @@ public class WShotgun : WeaponControllerBase
 
     public override void PerformAttack()
     {
-        // 1. 총구 이펙트 생성 (총알은 생성 안 함)
-        GameObject muzzleflash = weapon.muzzleflashPrefab;
-        if (muzzleflash != null)
+        // 1. 총구 이펙트 생성 (한 번만)
+        if (weapon.muzzleflashPrefab != null)
         {
-            Object.Instantiate(muzzleflash, weapon.firePoint.position, weapon.firePoint.rotation);
+            GameObject muzzleflash = weapon.muzzleflashPrefab;
+            GameObject muzzleflashObj = Object.Instantiate(muzzleflash, weapon.firePoint.position, weapon.firePoint.rotation);
+            muzzleflashObj.transform.SetParent(weapon.firePoint);
         }
 
-        if (entityAttack == null) return; // 도구가 없으면 중단
-
-        // 2. 샷건 스탯 값을 가져옵니다.
-        float range = stats.GetShotgunRadius(); // 샷건 '거리'
-        float angle = stats.GetShotgunRange();  // 샷건 '각도'
+        // 2. 발사 로직: 부채꼴 계산
+        // 사용자의 변수 매핑: GetShotgunRange()가 '각도', GetShotgunRadius()가 '사거리'라고 가정합니다.
+        float spreadAngle = stats.GetShotgunRange(); // 전체 부채꼴 각도 (예: 45도)
+        float bulletRange = stats.GetShotgunRadius(); // 총알 사거리
         float damage = stats.GetDamage();
+        float bulletspeed = stats.GetBulletSpeed();
 
-        // 3. '공격 도구'에게 스탯을 넘겨주며 실행을 '요청'합니다.
-        entityAttack.PerformFanAttack(range, angle, damage);
+        // 각 총알 사이의 각도 간격 계산
+        // (총알이 1발이면 나눌 수 없으므로 예외 처리)
+        float angleStep = (BulletCount > 1) ? spreadAngle / (BulletCount - 1) : 0;
+
+        // 시작 각도 (가장 왼쪽 총알의 각도)
+        float startAngle = -spreadAngle / 2f;
+
+        for (int i = 0; i < BulletCount; i++)
+        {
+            // 현재 총알의 각도 계산
+            float currentAngleOffset = startAngle + (angleStep * i);
+
+            // 회전값 계산: 총구의 기본 회전값 + 부채꼴 오프셋
+            Quaternion rotation = weapon.firePoint.rotation * Quaternion.Euler(0, 0, currentAngleOffset);
+
+            // 3. 총알 생성
+            GameObject bulletObj = Object.Instantiate(weapon.bulletPrefab, weapon.firePoint.position, rotation);
+
+            // 4. 총알 스탯 적용 (데미지, 사거리 등)
+            Bullet bulletScript = bulletObj.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.damage = damage;
+                bulletScript.maxRange = bulletRange;
+                bulletScript.bulletSpeed = bulletspeed;
+                // bulletScript.bulletSpeed = ...; // 속도도 스탯에 있다면 여기서 설정 가능
+            }
+        }
     }
 }

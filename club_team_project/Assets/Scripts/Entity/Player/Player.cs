@@ -1,10 +1,24 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : Entity
 {
     public PlayerInputHandler input { get; private set; }
     public Weapon Weapon { get; private set; }
+
+    [System.Serializable]
+    public struct WeaponSpriteMapping
+    {
+        public WeaponStatSO weaponData; // 예: PistolData
+        public Sprite weaponSprite;     // 예: 권총 든 이미지
+    }
+
+    [Header("Weapon Visuals")]
+    [SerializeField] private List<WeaponSpriteMapping> weaponSpriteList;
+
+    private SpriteRenderer spriteRenderer; // [추가]
 
     public Interaction interaction { get; private set; }
     public Entity_Stat Entity_Stat { get; private set; }
@@ -16,11 +30,11 @@ public class Player : Entity
 
 
     private Camera maincamera;
-    [SerializeField] private GameObject whiteScreenPanel;
+    [SerializeField] private Image whiteScreenPanel;
 
     [Header("Flashbang Grenade")]
     [SerializeField] private GameObject flashbangPrefab;
-    [SerializeField] private WeaponStatSO flashbangWeaponStat;
+    [SerializeField] private FlashStatSO flashbangWeaponStat;
     [SerializeField] private float flashbangCooldown = 5f;
     [SerializeField] private Transform firePoint;
     [SerializeField] private LayerMask whatIsTarget;
@@ -36,6 +50,13 @@ public class Player : Entity
         Entity_Stat = GetComponent<Entity_Stat>();
         Entity_Health = GetComponent<Entity_Health>();
         Weapon = GetComponent<Weapon>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(); // [추가]
+
+        if (Weapon != null)
+        {
+            Weapon.OnWeaponEquipped += HandleWeaponChange;
+        }
+
 
         idleState = new Player_IdleState(this, stateMachine, "idle");
         moveState = new Player_MoveState(this, stateMachine, "move");
@@ -47,6 +68,16 @@ public class Player : Entity
         base.Start();
         stateMachine.Initialize(idleState);
         maincamera = Camera.main;
+
+
+    }
+
+    private void OnDestroy()
+    {
+        if (Weapon != null)
+        {
+            Weapon.OnWeaponEquipped -= HandleWeaponChange;
+        }
     }
 
     // Update is called once per frame
@@ -68,8 +99,7 @@ public class Player : Entity
     public override void OnStun(float duration)
     {
         base.OnStun(duration);
-        // 이미 스턴 상태라면 중복 실행 방지 (선택적)
-        if (whiteScreenPanel != null && whiteScreenPanel.activeInHierarchy)
+        if (whiteScreenPanel != null && whiteScreenPanel.gameObject.activeInHierarchy)
             return;
 
         Debug.Log($"[플레이어] 섬광탄에 {duration}초 동안 스턴!");
@@ -110,6 +140,7 @@ public class Player : Entity
     {
         if (input.flash && flashbangTimer <= 0)
         {
+            Debug.Log("[플레이어] 섬광탄 투척!");
             flashbangTimer = flashbangCooldown;
 
             GameObject grenadeObj = Instantiate(flashbangPrefab, firePoint.position, firePoint.rotation);
@@ -117,9 +148,25 @@ public class Player : Entity
 
             float radius = flashbangWeaponStat.FlashbangRadius;
             float duration = flashbangWeaponStat.FlashbangDuration;
-            float speed = flashbangWeaponStat.BulletSpeed;
+            float speed = flashbangWeaponStat.FlashSpeed;
 
             grenadeScript.Initialize(radius, duration, speed, whatIsTarget);
+        }
+    }
+
+    private void HandleWeaponChange(WeaponStatSO newWeapon, int ammo)
+    {
+        // 리스트를 뒤져서 지금 낀 무기와 짝꿍인 스프라이트를 찾음
+        foreach (var mapping in weaponSpriteList)
+        {
+            if (mapping.weaponData == newWeapon)
+            {
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.sprite = mapping.weaponSprite;
+                }
+                return; // 찾았으면 종료
+            }
         }
     }
 
@@ -127,14 +174,20 @@ public class Player : Entity
     {
         // 1. 하얀 패널을 켠다
         if (whiteScreenPanel != null)
-            whiteScreenPanel.SetActive(true);
+            whiteScreenPanel.gameObject.SetActive(true);
 
-        // 2. duration(스턴 시간)만큼 기다린다
         yield return new WaitForSeconds(duration);
 
-        // 3. 하얀 패널을 다시 끈다
         if (whiteScreenPanel != null)
-            whiteScreenPanel.SetActive(false);
+            whiteScreenPanel.gameObject.SetActive(false);
+    }
+
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
+
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.playerDeathClip, 1f);
+        Destroy(this.gameObject);
     }
 
     protected void OnDrawGizmos()

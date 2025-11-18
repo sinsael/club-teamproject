@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public event Action<WeaponStatSO, int> OnWeaponEquipped;
+    public event Action<int> OnAmmoChanged;
+    public event Action<bool> OnReloadStatusChanged;
+
     public Entity_Stat entitystat { get; private set; }
     private IWeaponAction currentStrategy;
 
@@ -130,6 +135,8 @@ public class Weapon : MonoBehaviour
         currentBullets--;
         Debug.Log($"발사! 남은 총알: {currentBullets}");
 
+        OnAmmoChanged?.Invoke(currentBullets);
+
         currentStrategy?.PerformAttack();
 
         StartCoroutine(CoStartAttackCooldown());
@@ -151,6 +158,10 @@ public class Weapon : MonoBehaviour
         StopAllCoroutines();
 
         Debug.Log($"{stats.weaponType} 장착! 전략: {strategy.GetType().Name}");
+
+        OnWeaponEquipped?.Invoke(stats, currentBullets);
+        OnReloadStatusChanged?.Invoke(false);
+
     }
 
     private IEnumerator CoStartAttackCooldown()
@@ -172,12 +183,16 @@ public class Weapon : MonoBehaviour
     private IEnumerator CoReload()
     {
         isReloading = true;
+        OnReloadStatusChanged?.Invoke(true);
         float reloadTime = entitystat.GetReloadTime();
         yield return new WaitForSeconds(reloadTime);
         currentBullets = (int)entitystat.GetStatByType(StatType.MaxBullets).GetValue();
+        OnAmmoChanged?.Invoke(currentBullets);
         isReloading = false;
+        OnReloadStatusChanged?.Invoke(false);
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         // 1. entitystat이 null일 경우(Awake 전) 대비
@@ -221,5 +236,5 @@ public class Weapon : MonoBehaviour
             Handles.DrawSolidArc(transform.position, Vector3.forward, startDirection, currentShotgunRange, currentShotgunRadius);
         }
     }
-
+#endif
 }

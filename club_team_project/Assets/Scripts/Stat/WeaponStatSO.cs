@@ -23,7 +23,7 @@ public class WeaponStatSO : ScriptableObject
     [Header("¼¦°Ç Àü¿ë")]
     public float ShotgunRange;
     public float ShotgunRadius;
-    [Header("¼¶±¤Åº Àü¿ë")]
-    public float FlashbangDuration;
-    public float FlashbangRadius;
+    [Header("UI")]
+    public Sprite weaponIcon;
+    public string weaponName;
 }

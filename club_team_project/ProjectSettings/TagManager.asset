@@ -16,7 +16,7 @@ TagManager:
   - PlayerBullet
   - EnemyBullet
   - Obj
-  - 
+  - Map
   - 
   - 
   - 
@@ -40,6 +40,24 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map
+    uniqueID: 243199595
+    locked: 0
+  - name: Object
+    uniqueID: 2378952737
+    locked: 0
+  - name: Enemy
+    uniqueID: 3499476001
+    locked: 0
+  - name: Player
+    uniqueID: 491150607
+    locked: 0
+  - name: Effect
+    uniqueID: 4036934547
+    locked: 0
+  - name: UI
+    uniqueID: 743032729
     locked: 0
   m_RenderingLayers:
   - Default
