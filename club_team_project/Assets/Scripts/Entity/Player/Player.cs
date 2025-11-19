@@ -13,6 +13,7 @@ public class Player : Entity
     {
         public WeaponStatSO weaponData; // 예: PistolData
         public Sprite weaponSprite;     // 예: 권총 든 이미지
+        public Vector2 firePointPos;
     }
 
     [Header("Weapon Visuals")]
@@ -40,6 +41,7 @@ public class Player : Entity
     [SerializeField] private LayerMask whatIsTarget;
 
     private float flashbangTimer = 0f;
+
 
 
     public override void Awake()
@@ -96,13 +98,13 @@ public class Player : Entity
         input.SwitchWeaponInput();
         ThrowFlashbang();
     }
+
     public override void OnStun(float duration)
     {
         base.OnStun(duration);
         if (whiteScreenPanel != null && whiteScreenPanel.gameObject.activeInHierarchy)
             return;
 
-        Debug.Log($"[플레이어] 섬광탄에 {duration}초 동안 스턴!");
         StartCoroutine(CoShowWhiteScreen(duration));
     }
     private void HandleMouseRotation()
@@ -140,7 +142,6 @@ public class Player : Entity
     {
         if (input.flash && flashbangTimer <= 0)
         {
-            Debug.Log("[플레이어] 섬광탄 투척!");
             flashbangTimer = flashbangCooldown;
 
             GameObject grenadeObj = Instantiate(flashbangPrefab, firePoint.position, firePoint.rotation);
@@ -156,16 +157,30 @@ public class Player : Entity
 
     private void HandleWeaponChange(WeaponStatSO newWeapon, int ammo)
     {
-        // 리스트를 뒤져서 지금 낀 무기와 짝꿍인 스프라이트를 찾음
+
         foreach (var mapping in weaponSpriteList)
         {
             if (mapping.weaponData == newWeapon)
             {
+                // 1. 스프라이트 교체
                 if (spriteRenderer != null)
                 {
                     spriteRenderer.sprite = mapping.weaponSprite;
                 }
-                return; // 찾았으면 종료
+
+                // 2. [추가] 총구(FirePoint) 위치 교체
+                // transform.position이 아니라 localPosition을 써야 플레이어 기준으로 움직입니다.
+                if (Weapon != null && Weapon.firePoint != null)
+                {
+                    Weapon.firePoint.localPosition = mapping.firePointPos;
+                }
+                else
+                {
+
+                    Weapon.firePoint.localPosition = mapping.firePointPos;
+                }
+
+                return;
             }
         }
     }

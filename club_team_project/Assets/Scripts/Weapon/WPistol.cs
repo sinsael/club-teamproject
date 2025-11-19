@@ -16,10 +16,17 @@ public class WPistol : WeaponControllerBase
     {
         GameObject bullet = weapon.bulletPrefab;
         GameObject bulletObj = Object.Instantiate(bullet, weapon.firePoint.position, weapon.firePoint.rotation);
-        GameObject muzzleflash = weapon.muzzleflashPrefab;
-        GameObject muzzleflashObj = Object.Instantiate(muzzleflash, weapon.firePoint.position, weapon.firePoint.rotation);
+        if (weapon.muzzleflashPrefab != null)
+        {
+            GameObject muzzleflashObj = Object.Instantiate(weapon.muzzleflashPrefab, weapon.firePoint.position, weapon.firePoint.rotation);
 
-        muzzleflashObj.transform.SetParent(weapon.firePoint);
+            muzzleflashObj.transform.localScale = weapon.muzzleflashPrefab.transform.localScale;
+
+            muzzleflashObj.transform.SetParent(weapon.firePoint, true);
+
+            muzzleflashObj.transform.localPosition = Vector3.zero;
+            muzzleflashObj.transform.localRotation = Quaternion.identity;
+        }
 
         Bullet bulletScript = bulletObj.GetComponent<Bullet>();
         if (bulletScript != null)

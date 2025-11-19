@@ -9,7 +9,6 @@ public class Player_IdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Enter Idle State");
         player.SetVelocity(0f,0f);
     }
 

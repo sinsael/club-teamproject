@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07b3d9a1ea94f204c841d72b6a985d4c, type: 3}
-  m_Name: Enemy_RifleData
+  m_Name: None_data 1
   m_EditorClassIdentifier: 
-  weaponType: 1
-  bulletPrefab: {fileID: 7564517103262747030, guid: 5f1246865b2cb9b4b8229be361b2da75, type: 3}
-  muzzleflashPrefab: {fileID: 4834427793524327047, guid: cbe1fb633273e9345a8f2129b4833a26, type: 3}
-  Damage: 3
-  Range: 3
-  Speed: 3
-  FireRate: 3
-  MaxBullets: 30
-  ReloadTime: 3
-  FovRange: 10
-  FovRadius: 10
-  BulletSpeed: 10
+  weaponType: 0
+  bulletPrefab: {fileID: 0}
+  muzzleflashPrefab: {fileID: 0}
+  Damage: 0
+  Range: 0
+  Speed: 0
+  FireRate: 0
+  MaxBullets: 0
+  ReloadTime: 0
+  FovRange: 0
+  FovRadius: 0
+  BulletSpeed: 0
   ShotgunRange: 0
   ShotgunRadius: 0
   weaponIcon: {fileID: 0}

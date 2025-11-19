@@ -80,6 +80,7 @@ public class Enemy_Ai : MonoBehaviour
         if (playerAlert())
         {
             Debug.Log("대기");
+            rb.linearVelocity = Vector3.zero;
             currentState = EnemyState.Chasing;
         }
     }

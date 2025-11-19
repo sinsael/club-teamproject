@@ -25,7 +25,6 @@ public class Enemy : Entity
     private IEnumerator CoStunRoutine(float duration)
     {
         isStunned = true;
-        Debug.Log($"{name} 기절 시작!");
         enemy_Ai.enabled = false;
 
         // (선택 사항) 물리적으로 밀려나는 것을 방지하고 싶다면 속도 0으로 설정
@@ -38,7 +37,6 @@ public class Enemy : Entity
 
         isStunned = false;
         enemy_Ai.enabled = true;
-        Debug.Log($"{name} 기절 해제!");
     }
 
     public override void EntityDeath()

@@ -11,13 +11,11 @@ public class Player_MoveState : PlayerState
         base.Enter();
 
 
-        Debug.Log("Enter Move State");
     }
 
     public override void Update()
     {
         base.Update();
-        Debug.Log("Update Move State");
         if (input.moveinput == Vector2.zero)
         {
             stateMachine.ChangeState(player.idleState);

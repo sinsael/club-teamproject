@@ -24,7 +24,7 @@ MonoBehaviour:
   FovRange: 10
   FovRadius: 10
   BulletSpeed: 10
-  ShotgunRange: 60
-  ShotgunRadius: 5
+  ShotgunRange: 0
+  ShotgunRadius: 0
   weaponIcon: {fileID: 1275589539659018210, guid: 6dc5ec916e075994a99f67195bf2c255, type: 3}
   weaponName: 

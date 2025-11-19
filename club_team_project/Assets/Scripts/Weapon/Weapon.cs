@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
+
+
 public class Weapon : MonoBehaviour
 {
     public event Action<WeaponStatSO, int> OnWeaponEquipped;
@@ -13,6 +15,7 @@ public class Weapon : MonoBehaviour
     private IWeaponAction currentStrategy;
 
     [Header("총알")]
+
     public Transform firePoint;
     public GameObject bulletPrefab { get; private set; }
     public GameObject muzzleflashPrefab { get; private set; }
@@ -123,11 +126,13 @@ public class Weapon : MonoBehaviour
     {
         if (isReloading || isAttackCooldown)
         {
+            Debug.Log($"[Weapon] 발사 실패: 쿨다운({isAttackCooldown}) 또는 재장전({isReloading}) 중");
             return;
         }
 
         if (currentBullets == 0)
         {
+            Debug.Log("[Weapon] 발사 실패: 총알이 없음 -> 재장전 시도");
             StartCoroutine(CoReload());
             return;
         }
@@ -136,6 +141,11 @@ public class Weapon : MonoBehaviour
         Debug.Log($"발사! 남은 총알: {currentBullets}");
 
         OnAmmoChanged?.Invoke(currentBullets);
+        if (currentStrategy == null)
+        {
+            Debug.LogError("[Weapon] 오류: 무기 전략(Strategy)이 연결되지 않았습니다!");
+            return;
+        }
 
         currentStrategy?.PerformAttack();
 
@@ -163,6 +173,8 @@ public class Weapon : MonoBehaviour
         OnReloadStatusChanged?.Invoke(false);
 
     }
+
+
 
     private IEnumerator CoStartAttackCooldown()
     {

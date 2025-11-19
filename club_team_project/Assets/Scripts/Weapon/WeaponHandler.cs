@@ -15,18 +15,28 @@ public class WeaponHandler : MonoBehaviour
     void Awake()
     {
         weapon = GetComponent<Weapon>();
-        Wgun = new Dictionary<WeaponStatSO, IWeaponAction>
+
+        Wgun = new Dictionary<WeaponStatSO, IWeaponAction>();
+        ammoCache = new Dictionary<WeaponStatSO, int>();
+
+        // 2. 각 무기 데이터가 "있는 경우에만" 등록하도록 안전장치 추가
+        if (pistolStats != null)
         {
-           { pistolStats, new WPistol() },
-            { rifleStats, new WRifle() },
-            { shotgunStats, new WShotgun() }
-        };
-        ammoCache = new Dictionary<WeaponStatSO, int>
+            Wgun.Add(pistolStats, new WPistol());
+            ammoCache.Add(pistolStats, (int)pistolStats.MaxBullets);
+        }
+
+        if (rifleStats != null)
         {
-            { pistolStats, (int)pistolStats.MaxBullets },
-            { rifleStats, (int)rifleStats.MaxBullets },
-            { shotgunStats, (int)shotgunStats.MaxBullets }
-        };
+            Wgun.Add(rifleStats, new WRifle());
+            ammoCache.Add(rifleStats, (int)rifleStats.MaxBullets);
+        }
+
+        if (shotgunStats != null)
+        {
+            Wgun.Add(shotgunStats, new WShotgun());
+            ammoCache.Add(shotgunStats, (int)shotgunStats.MaxBullets);
+        }
     }
 
     private void Start()

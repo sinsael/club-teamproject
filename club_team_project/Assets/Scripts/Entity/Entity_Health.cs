@@ -12,6 +12,9 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
     [SerializeField] private float regenInterval = 1;
     [SerializeField] private bool canRegenerateHealth = true;
 
+    [SerializeField] private float damageRegenDelay = 3f;
+
+    private float lastDamageTime;
     protected void Awake()
     {
         entity = GetComponentInParent<Entity>();
@@ -19,13 +22,11 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
 
         if (entitystat == null)
         {
-            Debug.LogError($"[Entity_Health] {name} 오브젝트에 Entity_Stat이 없습니다!", this);
             return;
         }
 
         if (entitystat == null)
         {
-            Debug.LogError($"[Entity_Health] {name} 오브젝트에 Entity_Stat이 없습니다!", this);
             return;
         }
 
@@ -36,7 +37,7 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
 
     public void Start()
     {
-        currentHealth = entitystat.GetMaxHealth();
+        currentHealth = entitystat.healthStat.maxHealth.GetValue();
 
     }
 
@@ -45,7 +46,6 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
         if (isDead)
             return false;
 
-        Debug.Log($"{name} took {damage} damage.");
 
         ReduceHealth(damage);
 
@@ -56,6 +56,8 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
     {
         currentHealth = currentHealth - damage;
 
+        lastDamageTime = Time.time;
+
         if (currentHealth <= 0)
             Die();
     }
@@ -64,6 +66,11 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
     {
         if (canRegenerateHealth == false)
             return;
+
+        if (Time.time < lastDamageTime + damageRegenDelay)
+        {
+            return;
+        }
 
         float regenAmount = entitystat.healthStat.healthRegen.GetValue();
         IncreaseHealth(regenAmount);
@@ -86,12 +93,7 @@ public class Entity_Health : MonoBehaviour, ITakeDamage
         // [수정 2] entity가 연결되어 있는지 확인하고 호출
         if (entity != null)
         {
-            Debug.Log($"{name} 사망!"); // 확인용 로그
             entity.EntityDeath();
-        }
-        else
-        {
-            Debug.LogError($"{name}의 entity 변수가 비어있어서 죽을 수 없습니다!");
         }
     }
 }

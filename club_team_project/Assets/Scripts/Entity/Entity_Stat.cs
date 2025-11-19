@@ -33,7 +33,14 @@ public class Entity_Stat : MonoBehaviour
         FlashbangSpeed = new Stat(),
     };
 
-
+    public void Awake()
+    {
+        if (defaultStatSetup != null)
+        {
+            healthStat.maxHealth.SetBaseValue(defaultStatSetup.maxHealth);
+            healthStat.healthRegen.SetBaseValue(defaultStatSetup.healthRegen);
+        }
+    }
 
     public float GetMaxHealth()
     {
