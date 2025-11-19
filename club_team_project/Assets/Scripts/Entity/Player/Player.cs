@@ -92,6 +92,10 @@ public class Player : Entity
             flashbangTimer -= Time.deltaTime;
         }
 
+        interaction.UpdateObjDetected();
+        interaction.FindBestTarget();
+        interaction.HandleTargetChange();
+
         Shoot();
         HandleMouseRotation();
         Intertable();

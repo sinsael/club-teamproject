@@ -25,6 +25,15 @@ public class SoundManager : MonoBehaviour
     [Header("3. 전투")]
     public AudioClip[] enemyDeathClips;  // [적 처치 1.mp3, 적 처치 2.mp3] 를 배열로 넣기
 
+    [Header("4. 총 사운드")]
+    public AudioClip pistolClip;
+    public AudioClip rifleClip;
+    public AudioClip shotgunClip;
+    public AudioClip reloadClip;
+    public AudioClip shotgunReloadClip;
+    public AudioClip flashClip;
+
+    [Space]
     public AudioClip doorBreachClip;
 
     private void Awake()
