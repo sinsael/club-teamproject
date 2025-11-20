@@ -1,24 +1,28 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Hostage : Entity, IInteraction, IPointerClickHandler
+public class Hostage : Entity, IInteraction
 {
+    public void OnSelect()
+    {
+
+    }
     public void OnDeselect()
     {
-        throw new System.NotImplementedException();
+      
     }
 
     public void OnInteract()
     {
-        throw new System.NotImplementedException();
-    }
-    public void OnSelect()
-    {
-        throw new System.NotImplementedException();
+        HostageManager.instance.CollectHostage();
+        Destroy(gameObject);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public override void EntityDeath()
     {
-        throw new System.NotImplementedException();
+        base.EntityDeath();
+
+        HostageManager.instance.HostageDied();
+        Destroy(gameObject);
     }
 }

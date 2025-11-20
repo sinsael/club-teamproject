@@ -17,7 +17,7 @@ TagManager:
   - EnemyBullet
   - Obj
   - Map
-  - 
+  - Hostage
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3499476001
+    locked: 0
+  - name: npc
+    uniqueID: 906574501
     locked: 0
   - name: Player
     uniqueID: 491150607

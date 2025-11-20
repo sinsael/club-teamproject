@@ -114,6 +114,7 @@ public class Player : Entity
     private void HandleMouseRotation()
     {
         if (maincamera == null) return;
+        if (GameManager.Instance.currentGameState != GameState.GamePlay) return;
 
         Vector3 mouseScreenPos = Input.mousePosition;
 
@@ -201,12 +202,13 @@ public class Player : Entity
             whiteScreenPanel.gameObject.SetActive(false);
     }
 
+    [ContextMenu("test die")]
     public override void EntityDeath()
     {
         base.EntityDeath();
 
         SoundManager.Instance.PlaySFX(SoundManager.Instance.playerDeathClip, 1f);
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
 
     protected void OnDrawGizmos()

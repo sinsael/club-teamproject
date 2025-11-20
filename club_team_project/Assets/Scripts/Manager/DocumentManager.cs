@@ -7,12 +7,12 @@ public class DocumentManager : MonoBehaviour
 
     [Header("설정")]
     [SerializeField] private int totalDocuments = 5;
-    [SerializeField] private int currentDocuments = 0;
+    public int currentDocuments = 0;
 
     [Header("연결")]
     [SerializeField] private GameObject exitDoor;
 
-    private bool isStageClear = false;
+    public bool AllcollectDocuments = false;
 
     private void Awake()
     {
@@ -47,7 +47,7 @@ public class DocumentManager : MonoBehaviour
 
     private void UnlockStage()
     {
-        isStageClear = true;
+        AllcollectDocuments = true;
 
         SoundManager.Instance.PlaySFX(SoundManager.Instance.allDocsFoundClip);
     
