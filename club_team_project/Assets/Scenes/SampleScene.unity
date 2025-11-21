@@ -399,8 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isFading: 0
   FadePannel: {fileID: 372941929}
-  FadeDuration: 0
-  fadedTime: 0.5
+  fadedTime: 1
 --- !u!1 &372941929 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5748448813555338063, guid: f071946c6889ea248a771a9ac0ba0777, type: 3}
