@@ -209,6 +209,7 @@ public class Player : Entity
 
         SoundManager.Instance.PlaySFX(SoundManager.Instance.playerDeathClip, 1f);
         gameObject.SetActive(false);
+        GameManager.Instance.ChangeGameState(GameState.GameOver);
     }
 
     protected void OnDrawGizmos()

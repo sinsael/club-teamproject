@@ -17,6 +17,9 @@ public class WShotgun : WeaponControllerBase
 
     public override void PerformAttack()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.shotgunClip);
+
+
         if (weapon.muzzleflashPrefab != null)
         {
             GameObject muzzleflashObj = Object.Instantiate(weapon.muzzleflashPrefab, weapon.firePoint.position, weapon.firePoint.rotation);

@@ -14,6 +14,7 @@ public class WPistol : WeaponControllerBase
 
     public override void PerformAttack()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.pistolClip);
         GameObject bullet = weapon.bulletPrefab;
         GameObject bulletObj = Object.Instantiate(bullet, weapon.firePoint.position, weapon.firePoint.rotation);
         if (weapon.muzzleflashPrefab != null)

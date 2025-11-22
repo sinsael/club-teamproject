@@ -16,6 +16,9 @@ public class WRifle : WeaponControllerBase
     {
         if (weapon.bulletPrefab == null) return;
 
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.rifleClip);
+
+
         // 2. ÃÑ¾Ë »ý¼º
         GameObject bulletObj = Object.Instantiate(weapon.bulletPrefab, weapon.firePoint.position, weapon.firePoint.rotation);
 

@@ -34,6 +34,8 @@ public class FlashbangGrenade : MonoBehaviour
 
     void Explode()
     {
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.flashClip);
+
         Collider2D[] targets = Physics2D.OverlapCircleAll(transform.position, explosionRadius, whatIsTarget);
 
         Debug.Log($"[섬광탄] 폭발! 감지된 대상 수: {targets.Length}명"); // 1. 감지 자체가 되는지 확인

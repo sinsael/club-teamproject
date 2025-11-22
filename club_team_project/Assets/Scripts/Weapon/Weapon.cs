@@ -14,6 +14,8 @@ public class Weapon : MonoBehaviour
     public Entity_Stat entitystat { get; private set; }
     private IWeaponAction currentStrategy;
 
+    private WeaponType currentWeaponType;
+
     [Header("ÃÑ¾Ë")]
 
     public Transform firePoint;
@@ -156,6 +158,8 @@ public class Weapon : MonoBehaviour
     {
         entitystat.EquipNewWeapon(stats);
 
+        currentWeaponType = stats.weaponType;
+
         currentStrategy = strategy;
         currentStrategy.Initialize(this, entitystat);
 
@@ -195,9 +199,24 @@ public class Weapon : MonoBehaviour
     private IEnumerator CoReload()
     {
         isReloading = true;
-        OnReloadStatusChanged?.Invoke(true);
         float reloadTime = entitystat.GetReloadTime();
-        yield return new WaitForSeconds(reloadTime);
+        OnReloadStatusChanged?.Invoke(true);
+        if (currentWeaponType == WeaponType.shotgun)
+        {
+            int reloadSoundCount = 5;
+            float interval = reloadTime / reloadSoundCount;
+            for (int i = 0; i < reloadSoundCount; i++)
+            {
+                SoundManager.Instance.PlaySFX(SoundManager.Instance.shotgunReloadClip);
+
+                yield return new WaitForSeconds(interval);
+            }
+        }
+        else
+        {
+            SoundManager.Instance.PlaySFX(SoundManager.Instance.reloadClip);
+            yield return new WaitForSeconds(reloadTime);
+        }
         currentBullets = (int)entitystat.GetStatByType(StatType.MaxBullets).GetValue();
         OnAmmoChanged?.Invoke(currentBullets);
         isReloading = false;

@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            FadeManager.Instance.FadeIn();
             ChangeGameState(GameState.GamePlay);
 
         }
@@ -56,21 +57,8 @@ public class GameManager : MonoBehaviour
     {
         // 상태는 변경하되 (입력 막기 용도), UI는 띄우지 않음
         ChangeGameState(GameState.GameOver);
-
-        // 재시작 시퀀스 시작
-        StartCoroutine(CoRestartGameSequence());
     }
 
-    // ★ 페이드 아웃 -> 씬 로드 순서를 제어하는 코루틴
-    IEnumerator CoRestartGameSequence()
-    {
-        // 1. 페이드 아웃이 끝날 때까지 대기
-        // (FadeManager의 CoFadeOut이 IEnumerator를 반환해야 yield return 가능)
-        yield return StartCoroutine(FadeManager.Instance.CoFadeOut());
-
-        // 2. 페이드 아웃이 완전히 끝나면 씬 재시작
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 
     public void ChangeGameState(GameState newState)
     {
@@ -97,6 +85,12 @@ public class GameManager : MonoBehaviour
 
             case GameState.GameOver:
                 Time.timeScale = 1f; // 게임 정지
+                FadeManager.Instance.FadeOut(() =>
+                {
+                    isfirsteLoad = false;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }); 
+                   
                 break;
         }
     }
