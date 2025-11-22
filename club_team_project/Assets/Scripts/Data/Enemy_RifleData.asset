@@ -17,7 +17,7 @@ MonoBehaviour:
   muzzleflashPrefab: {fileID: 4834427793524327047, guid: cbe1fb633273e9345a8f2129b4833a26, type: 3}
   Damage: 3
   Range: 3
-  Speed: 3
+  Speed: 4
   FireRate: 3
   MaxBullets: 30
   ReloadTime: 3

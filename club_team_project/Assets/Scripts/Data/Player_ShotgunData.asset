@@ -16,15 +16,15 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7564517103262747030, guid: 12917e5e18eba934281f0b9d9d4ff1c5, type: 3}
   muzzleflashPrefab: {fileID: 2474817961002304450, guid: 01ba1038f1be4be439abbef87b581222, type: 3}
   Damage: 99999
-  Range: 15
-  Speed: 1
+  Range: 5
+  Speed: 2
   FireRate: 0.3
-  MaxBullets: 1
+  MaxBullets: 5
   ReloadTime: 1.5
   FovRange: 10
   FovRadius: 10
   BulletSpeed: 10
-  ShotgunRange: 0
-  ShotgunRadius: 0
+  ShotgunRange: 45
+  ShotgunRadius: 5
   weaponIcon: {fileID: 1275589539659018210, guid: 6dc5ec916e075994a99f67195bf2c255, type: 3}
   weaponName: 

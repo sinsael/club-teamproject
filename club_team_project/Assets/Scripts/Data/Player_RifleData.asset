@@ -17,13 +17,13 @@ MonoBehaviour:
   muzzleflashPrefab: {fileID: 4834427793524327047, guid: cbe1fb633273e9345a8f2129b4833a26, type: 3}
   Damage: 999
   Range: 10
-  Speed: 10
+  Speed: 3.5
   FireRate: 0.3
-  MaxBullets: 3
+  MaxBullets: 31
   ReloadTime: 2.5
   FovRange: 0
   FovRadius: 0
-  BulletSpeed: 10
+  BulletSpeed: 70
   ShotgunRange: 0
   ShotgunRadius: 0
   weaponIcon: {fileID: 8333481726314500824, guid: 077a5176c8f2b0b4aa237a175c444dbb, type: 3}

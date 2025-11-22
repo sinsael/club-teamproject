@@ -2354,6 +2354,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180.002
       objectReference: {fileID: 0}
+    - target: {fileID: 8703753397431744914, guid: b95c386cdeb2ffb47a9438fa723f9c9e, type: 3}
+      propertyPath: ShootBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703753397431744914, guid: b95c386cdeb2ffb47a9438fa723f9c9e, type: 3}
+      propertyPath: currentBullets
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703753397431744914, guid: b95c386cdeb2ffb47a9438fa723f9c9e, type: 3}
+      propertyPath: RiflebetweenShots
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

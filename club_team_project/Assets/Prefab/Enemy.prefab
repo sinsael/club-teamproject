@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325e45cb04b2eb84bad95508bf0dca60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 10
   isDead: 0
   regenInterval: 1
   canRegenerateHealth: 1
