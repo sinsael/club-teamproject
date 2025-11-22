@@ -1755,6 +1755,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1690358429
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 24.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.08078025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.99673194
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3229439333354081671, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -189.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227539981072256119, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
 --- !u!1 &1721081203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,6 +2415,30 @@ PrefabInstance:
       propertyPath: GameStartUI
       value: 
       objectReference: {fileID: 390480728}
+    - target: {fileID: 6136807785035043226, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
+      propertyPath: flashClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a1559a43f0516e44a75ea9113705c51, type: 3}
+    - target: {fileID: 6136807785035043226, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
+      propertyPath: rifleClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fba26a7288868a045afe5abc5e99dae9, type: 3}
+    - target: {fileID: 6136807785035043226, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
+      propertyPath: pistolClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 97c28cd464cb4314e8d74e1f867744ae, type: 3}
+    - target: {fileID: 6136807785035043226, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
+      propertyPath: reloadClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fe01fd9abfba80d4b87a9897ff03fe64, type: 3}
+    - target: {fileID: 6136807785035043226, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
+      propertyPath: shotgunClip
+      value: 
+      objectReference: {fileID: 8300000, guid: efeb15f7c975d0b4a8dcda383bc51bfe, type: 3}
+    - target: {fileID: 6136807785035043226, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
+      propertyPath: shotgunReloadClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 83978697c2ff2b64584e5e184b4ba824, type: 3}
     - target: {fileID: 8974569879266925707, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
       propertyPath: whitePannel
       value: 
@@ -2386,3 +2467,4 @@ SceneRoots:
   - {fileID: 1600820553739701887}
   - {fileID: 1847899203}
   - {fileID: 274575828}
+  - {fileID: 1690358429}
