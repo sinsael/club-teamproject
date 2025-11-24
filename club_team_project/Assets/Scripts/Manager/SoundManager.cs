@@ -6,7 +6,6 @@ public class SoundManager : MonoBehaviour
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource sfxSource;
-    [SerializeField] private AudioSource bgmSource;
 
     [Header("--- 게임 이벤트 사운드 파일 ---")]
     [Header("1. 미션/스테이지")]
@@ -64,5 +63,21 @@ public class SoundManager : MonoBehaviour
             int randomIndex = Random.Range(0, enemyDeathClips.Length);
             PlaySFX(enemyDeathClips[randomIndex]);
         }
+    }
+
+
+    // [추가] SFX 볼륨 조절 (0.0 ~ 1.0)
+    public void SetSFXVolume(float volume)
+    {
+        if (sfxSource != null)
+        {
+            sfxSource.volume = volume;
+        }
+    }
+
+    // [추가] 현재 SFX 볼륨 가져오기 (UI 초기화용)
+    public float GetSFXVolume()
+    {
+        return sfxSource != null ? sfxSource.volume : 1f;
     }
 }

@@ -39,6 +39,7 @@ public class HostageManager : MonoBehaviour
         if (Failed) return; // 이미 실패했으면 집계 안 함
 
         currentHostage++;
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.hostageFoundClip);
         CheckStageClear(); // 상태 체크 함수로 통합
     }
 
@@ -71,13 +72,6 @@ public class HostageManager : MonoBehaviour
             {
                 UnlockStage();
             }
-        }
-        else
-        {
-            SoundManager.Instance.PlaySFX(SoundManager.Instance.hostageFoundClip);
-            // 아직 남은 인질이 있고, 막 구출했을 때만 소리 재생
-            // (HostageDied에서 호출될 땐 소리 안 나게 로직 분리 가능)
-            // 여기서는 간단하게 구출 로직 안에서만 소리 재생하도록 위쪽 CollectHostage에 넣는 게 나을 수 있습니다.
         }
     }
 

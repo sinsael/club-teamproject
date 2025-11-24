@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed;
     public float maxRange;
 
+    public WeaponType weaponType;
+
     Rigidbody2D rb;
     Collider2D col; // 컬라이더도 캐시해둡니다.
     SpriteRenderer sprite; // 총알 그래픽 (SpriteRenderer라고 가정)

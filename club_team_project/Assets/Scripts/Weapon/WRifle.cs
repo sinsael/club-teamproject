@@ -49,6 +49,8 @@ public class WRifle : WeaponControllerBase
             bulletScript.bulletSpeed = speed;
             bulletScript.maxRange = stats.GetRange();
 
+            bulletScript.weaponType = WeaponType.rifle;
+
             // [해결책] 총알 스크립트의 Start를 기다리지 말고, 여기서 물리 엔진으로 직접 쏩니다!
             if (bulletRb != null)
             {

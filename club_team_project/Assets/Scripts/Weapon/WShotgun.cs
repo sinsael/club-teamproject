@@ -56,6 +56,8 @@ public class WShotgun : WeaponControllerBase
                 bulletScript.damage = damage;
                 bulletScript.maxRange = bulletRange;
                 bulletScript.bulletSpeed = bulletspeed;
+
+                bulletScript.weaponType = WeaponType.shotgun;
             }
         }
     }

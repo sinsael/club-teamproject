@@ -38,6 +38,21 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(currentGameState == GameState.GamePlay)
+            {
+                ChangeGameState(GameState.GamePause);
+            }
+            else if (currentGameState == GameState.GamePause)
+            {
+                ChangeGameState(GameState.GamePlay);
+            }
+        }
+    }
+
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (isfirsteLoad)
