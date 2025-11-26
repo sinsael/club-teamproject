@@ -702,7 +702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &390480729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2112,6 +2112,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1226524725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 44989379234103880, guid: b95c386cdeb2ffb47a9438fa723f9c9e, type: 3}
+  m_PrefabInstance: {fileID: 5937136698954924149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bacee62f886a8a41be3f14461ddd507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1341750131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,7 +3067,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1919252754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3366,6 +3377,10 @@ PrefabInstance:
       propertyPath: GameStartUI
       value: 
       objectReference: {fileID: 390480728}
+    - target: {fileID: 2276073082847559256, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1226524725}
     - target: {fileID: 6136807785035043226, guid: adac4bfba8d2cd248a48fe93a5512f65, type: 3}
       propertyPath: flashClip
       value: 

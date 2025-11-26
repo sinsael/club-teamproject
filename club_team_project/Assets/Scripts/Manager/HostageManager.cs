@@ -79,11 +79,6 @@ public class HostageManager : MonoBehaviour
     {
         AllSaveHostage = true;
         SoundManager.Instance.PlaySFX(SoundManager.Instance.allHostagesFoundClip);
-
-        if (exitDoor != null)
-        {
-            exitDoor.SetActive(false); // 장애물 해제
-        }
     }
 
     private void TriggerGameOver()
