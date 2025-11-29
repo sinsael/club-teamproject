@@ -12,8 +12,13 @@ EditorBuildSettings:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     path: Assets/Scenes/new.unity
     guid: f4680a8cb697c31438cf0abf684b60ad
+=======
+    path: Assets/Scenes/SecondScene.unity
+    guid: b40bd7a5a62dd214bb1cce69b28ec105
+>>>>>>> Stashed changes
 =======
     path: Assets/Scenes/SecondScene.unity
     guid: b40bd7a5a62dd214bb1cce69b28ec105
