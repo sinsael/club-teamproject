@@ -122,6 +122,7 @@ NavMeshSettings:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1001 &81270941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +186,8 @@ PrefabInstance:
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!114 &160077956 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8703753397431744914, guid: b95c386cdeb2ffb47a9438fa723f9c9e, type: 3}
@@ -221,7 +224,10 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   canvas: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -356,11 +362,14 @@ Animator:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!4 &608816710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5237844391273814451, guid: b95c386cdeb2ffb47a9438fa723f9c9e, type: 3}
   m_PrefabInstance: {fileID: 5937136698954924149}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -903,7 +912,11 @@ BoxCollider2D:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> Stashed changes
 =======
   m_IsTrigger: 0
 >>>>>>> Stashed changes
@@ -966,10 +979,13 @@ PrefabInstance:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     - target: {fileID: 3013192376527217958, guid: 1aab21556a9e0c94da36b13de7d814db, type: 3}
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 608816710}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1681,7 +1697,10 @@ SceneRoots:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 81270941}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
