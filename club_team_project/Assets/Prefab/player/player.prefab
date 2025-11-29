@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5237844391273814451}
   - component: {fileID: 833099407082188665}
   - component: {fileID: 7005745292419354092}
-  - component: {fileID: 4640101900724537418}
   - component: {fileID: 44989379234103880}
   - component: {fileID: 8703753397431744914}
   - component: {fileID: 4956660392437627598}
@@ -108,28 +107,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.021380499, y: -1.8036464}
   m_Size: {x: 16.681736, y: 21.981297}
   m_Direction: 0
---- !u!95 &4640101900724537418
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515402089005016139}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0524850d6039cf740a14b0936886b37e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &44989379234103880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +358,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 491150607
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -4854829337826818713, guid: 5ea93099f4810454f9e89d5507681baf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

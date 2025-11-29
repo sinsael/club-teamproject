@@ -45,6 +45,7 @@ public class DocumentManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("Start")]
     private void UnlockStage()
     {
         AllcollectDocuments = true;
@@ -53,7 +54,7 @@ public class DocumentManager : MonoBehaviour
     
         if(exitDoor != null)
         {
-            exitDoor.SetActive(false);
+            exitDoor.SetActive(true);
         }
     }
 }

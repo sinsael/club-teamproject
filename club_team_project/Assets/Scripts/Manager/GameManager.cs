@@ -1,6 +1,11 @@
+<<<<<<< Updated upstream
 Ôªøusing UnityEngine;
-using UnityEngine.SceneManagement;
+=======
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+>>>>>>> Stashed changes
+using UnityEngine.SceneManagement;
 public enum GameState
 {
     GameStart,
@@ -32,11 +37,14 @@ public class GameManager : MonoBehaviour
         }
         else
             Destroy(gameObject);
+
+       
     }
 
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
     }
 
     public void OnDisable()
@@ -71,6 +79,7 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+<<<<<<< Updated upstream
         // ÌòπÏãú Î™®Î•º Ïó∞Í≤∞ ÎÅäÍπÄ Î∞©ÏßÄÎ•º ÏúÑÌï¥ Îã§Ïãú Ï∞æÍ∏∞ ÏãúÎèÑ
         if (playerController == null)
         {
@@ -78,13 +87,24 @@ public class GameManager : MonoBehaviour
             if (playerObj != null)
                 playerController = playerObj.GetComponent<MonoBehaviour>(); // ÌòπÏùÄ Íµ¨Ï≤¥Ï†ÅÏù∏ ÌÅ¥ÎûòÏä§Î™Ö
         }
+=======
+        GameObject canvas = GameObject.Find("Canvas");
+
+
+
+        // 2. æ¿¿Ã ∑ŒµÂµ«∏È ¿œ¥‹ ∆‰¿ÃµÂ ¿Œ¿ª π´¡∂∞« Ω««‡«’¥œ¥Ÿ.
+        // ¡ﬂø‰: ∆‰¿ÃµÂ∞° ≥°≥≠ µ⁄ø° ∞‘¿” ªÛ≈¬∏¶ ∫Ø∞Ê«ÿæﬂ æ»¿¸«’¥œ¥Ÿ.
+        FadeManager.Instance.FadeIn();
+>>>>>>> Stashed changes
 
         if (isfirsteLoad)
         {
+            // ¿Ã¡¶ √≥¿Ω ∑Œµ˘ ªÛ≈¬∑Œ ∫Ø∞Ê (ø©±‚º≠ Ω√∞£¿Ã ∏ÿ√„)
             ChangeGameState(GameState.GameStart);
         }
         else
         {
+<<<<<<< Updated upstream
             // [ÏàòÏ†ï] Î∞îÎ°ú Ïã§ÌñâÌïòÏßÄ ÏïäÍ≥†, ÏΩîÎ£®Ìã¥ÏùÑ ÌÜµÌï¥ Ìïú ÌîÑÎ†àÏûÑ ÎåÄÍ∏∞ ÌõÑ Ïã§Ìñâ
             StartCoroutine(WaitAndFadeIn());
         }
@@ -106,8 +126,27 @@ public class GameManager : MonoBehaviour
             Debug.LogError("FadeManagerÍ∞Ä Ïó¨Ï†ÑÌûà ÏóÜÏäµÎãàÎã§! DontDestroyOnLoad ÏÑ§Ï†ïÏùÑ ÌôïÏù∏Ìï¥Ï£ºÏÑ∏Ïöî.");
             // UIÎùºÎèÑ ÎÅÑÍ∏∞ ÏúÑÌï¥ Í∞ïÏ†ú Î≥ÄÍ≤Ω
             ChangeGameState(GameState.GamePlay);
+=======
+            // √≥¿Ω¿Ã æ∆¥œ∏È πŸ∑Œ «√∑π¿Ã
+            ChangeGameState(GameState.GamePlay);
+        }
+
+        if (canvas != null)
+        {
+            // 2. ∫Œ∏¿« transform.Find¥¬ ¿⁄Ωƒ¿Ã ≤®¡Æ ¿÷æÓµµ √£æ∆≥¿¥œ¥Ÿ.
+            Transform startUITr = canvas.transform.Find("GameStart");
+
+            if (startUITr != null)
+                GameStartUI = startUITr.gameObject;
+            Transform PauseUI = canvas.transform.Find("Pause");
+
+            if (PauseUI != null)
+                GamePauseUI = PauseUI.gameObject;
+
+>>>>>>> Stashed changes
         }
     }
+
 
     public void OnPlayerDead()
     {
@@ -138,8 +177,13 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GamePlay:
+<<<<<<< Updated upstream
                 Time.timeScale = 1f; // ÏãúÍ∞Ñ Ï†ïÏÉÅÌôî
                 playerController.enabled = true;
+=======
+                Time.timeScale = 1f; // Ω√∞£ ¡§ªÛ»≠
+                isfirsteLoad = false;
+>>>>>>> Stashed changes
                 break;
 
             case GameState.GameOver:
@@ -149,6 +193,27 @@ public class GameManager : MonoBehaviour
                     isfirsteLoad = false;
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 });
+<<<<<<< Updated upstream
+=======
+                break;
+            case GameState.GameClear:
+                Time.timeScale = 1f;
+                FadeManager.Instance.FadeOut(() =>
+                {
+                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
+                    int nextIndex = currentIndex + 1;
+                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                    {
+                        // ¥Ÿ¿Ω æ¿¿Ã ¡∏¿Á«œ∏È ∑ŒµÂ
+                        SceneManager.LoadScene(nextIndex);
+                    }
+                    else
+                    {
+                        // ¥Ÿ¿Ω æ¿¿Ã æ¯¿∏∏È(∏∂¡ˆ∏∑ æ¿¿Ã∏È) √≥¿Ω(0π¯)¿∏∑Œ µπæ∆∞®
+                        SceneManager.LoadScene(0);
+                    }
+                });
+>>>>>>> Stashed changes
                 break;
 
             case GameState.GameClear:

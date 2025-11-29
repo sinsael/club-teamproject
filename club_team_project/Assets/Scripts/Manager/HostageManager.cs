@@ -75,10 +75,19 @@ public class HostageManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("오픈")]
     private void UnlockStage()
     {
         AllSaveHostage = true;
         SoundManager.Instance.PlaySFX(SoundManager.Instance.allHostagesFoundClip);
+<<<<<<< Updated upstream
+=======
+
+        if (exitDoor != null)
+        {
+            exitDoor.SetActive(true); // 장애물 해제
+        }
+>>>>>>> Stashed changes
     }
 
     private void TriggerGameOver()

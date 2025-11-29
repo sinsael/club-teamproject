@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameStartUI : MonoBehaviour
+public class GameStart_UI : MonoBehaviour
 {
     GameInputSet gameInputSet;
     private void Awake()
