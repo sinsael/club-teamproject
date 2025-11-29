@@ -1,6 +1,12 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Ôªøusing UnityEngine;
+=======
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+>>>>>>> Stashed changes
 =======
 using System.Collections;
 using Unity.VisualScripting;
@@ -87,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // ÌòπÏãú Î™®Î•º Ïó∞Í≤∞ ÎÅäÍπÄ Î∞©ÏßÄÎ•º ÏúÑÌï¥ Îã§Ïãú Ï∞æÍ∏∞ ÏãúÎèÑ
         if (playerController == null)
         {
@@ -97,6 +104,8 @@ public class GameManager : MonoBehaviour
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         GameObject canvas = GameObject.Find("Canvas");
 
 
@@ -105,6 +114,9 @@ public class GameManager : MonoBehaviour
         // ¡ﬂø‰: ∆‰¿ÃµÂ∞° ≥°≥≠ µ⁄ø° ∞‘¿” ªÛ≈¬∏¶ ∫Ø∞Ê«ÿæﬂ æ»¿¸«’¥œ¥Ÿ.
         FadeManager.Instance.FadeIn();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -116,6 +128,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
             // [ÏàòÏ†ï] Î∞îÎ°ú Ïã§ÌñâÌïòÏßÄ ÏïäÍ≥†, ÏΩîÎ£®Ìã¥ÏùÑ ÌÜµÌï¥ Ìïú ÌîÑÎ†àÏûÑ ÎåÄÍ∏∞ ÌõÑ Ïã§Ìñâ
@@ -164,6 +177,11 @@ public class GameManager : MonoBehaviour
             // √≥¿Ω¿Ã æ∆¥œ∏È πŸ∑Œ «√∑π¿Ã
             ChangeGameState(GameState.GamePlay);
         }
+=======
+            // √≥¿Ω¿Ã æ∆¥œ∏È πŸ∑Œ «√∑π¿Ã
+            ChangeGameState(GameState.GamePlay);
+        }
+>>>>>>> Stashed changes
 
         if (canvas != null)
         {
@@ -180,6 +198,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     public void OnPlayerDead()
@@ -218,6 +239,9 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1f; // Ω√∞£ ¡§ªÛ»≠
                 isfirsteLoad = false;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -232,8 +256,29 @@ public class GameManager : MonoBehaviour
                 });
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 =======
+=======
+                break;
+            case GameState.GameClear:
+                Time.timeScale = 1f;
+                FadeManager.Instance.FadeOut(() =>
+                {
+                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
+                    int nextIndex = currentIndex + 1;
+                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                    {
+                        // ¥Ÿ¿Ω æ¿¿Ã ¡∏¿Á«œ∏È ∑ŒµÂ
+                        SceneManager.LoadScene(nextIndex);
+                    }
+                    else
+                    {
+                        // ¥Ÿ¿Ω æ¿¿Ã æ¯¿∏∏È(∏∂¡ˆ∏∑ æ¿¿Ã∏È) √≥¿Ω(0π¯)¿∏∑Œ µπæ∆∞®
+                        SceneManager.LoadScene(0);
+                    }
+                });
+>>>>>>> Stashed changes
                 break;
             case GameState.GameClear:
                 Time.timeScale = 1f;
