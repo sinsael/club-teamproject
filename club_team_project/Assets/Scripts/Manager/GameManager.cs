@@ -1,7 +1,13 @@
 using System.Collections;
+<<<<<<< Updated upstream
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+=======
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+>>>>>>> Stashed changes
 public enum GameState
 {
     GameStart,
@@ -35,12 +41,18 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+<<<<<<< Updated upstream
         }
+=======
+
+       
+>>>>>>> Stashed changes
     }
 
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        
     }
 
     public void OnDisable()
@@ -50,7 +62,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+<<<<<<< Updated upstream
         // ESC 키로 일시정지/해제
+=======
+>>>>>>> Stashed changes
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (currentGameState == GameState.GamePlay)
@@ -78,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+<<<<<<< Updated upstream
         // 1. 플레이어 찾기 (태그 이용)
         if (playerController == null)
         {
@@ -103,6 +119,38 @@ public class GameManager : MonoBehaviour
             if (GameStartUI == null) GameStartUI = GameObject.Find("GameStart");
             if (GamePauseUI == null) GamePauseUI = GameObject.Find("Pause");
         }
+=======
+        GameObject canvas = GameObject.Find("Canvas");
+
+
+
+        // 2. 씬이 로드되면 일단 페이드 인을 무조건 실행합니다.
+        // 중요: 페이드가 끝난 뒤에 게임 상태를 변경해야 안전합니다.
+        FadeManager.Instance.FadeIn();
+
+        if (isfirsteLoad)
+        {
+            // 이제 처음 로딩 상태로 변경 (여기서 시간이 멈춤)
+            ChangeGameState(GameState.GameStart);
+        }
+        else
+        {
+            // 처음이 아니면 바로 플레이
+            ChangeGameState(GameState.GamePlay);
+        }
+
+        if (canvas != null)
+        {
+            // 2. 부모의 transform.Find는 자식이 꺼져 있어도 찾아냅니다.
+            Transform startUITr = canvas.transform.Find("GameStart");
+
+            if (startUITr != null)
+                GameStartUI = startUITr.gameObject;
+            Transform PauseUI = canvas.transform.Find("Pause");
+
+            if (PauseUI != null)
+                GamePauseUI = PauseUI.gameObject;
+>>>>>>> Stashed changes
 
         // 3. 씬 로드 시 페이드 인 연출 시작
         Time.timeScale = 1f; // 페이드가 보이도록 시간 흐르게 설정
@@ -129,6 +177,7 @@ public class GameManager : MonoBehaviour
             else ChangeGameState(GameState.GamePlay);
         }
     }
+
 
     public void OnPlayerDead()
     {
@@ -157,13 +206,18 @@ public class GameManager : MonoBehaviour
             case GameState.GamePlay:
                 if (playerController != null) playerController.enabled = true; // 플레이어 조작 가능
                 Time.timeScale = 1f; // 시간 정상화
+<<<<<<< Updated upstream
                 isfirsteLoad = false; // 이제 처음 아님
+=======
+                isfirsteLoad = false;
+>>>>>>> Stashed changes
                 break;
 
             case GameState.GameOver:
                 Time.timeScale = 1f;
                 if (FadeManager.Instance != null)
                 {
+<<<<<<< Updated upstream
                     FadeManager.Instance.FadeOut(() =>
                     {
                         // 현재 씬 재시작
@@ -198,6 +252,29 @@ public class GameManager : MonoBehaviour
                         }
                     });
                 }
+=======
+                    isfirsteLoad = false;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                });
+                break;
+            case GameState.GameClear:
+                Time.timeScale = 1f;
+                FadeManager.Instance.FadeOut(() =>
+                {
+                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
+                    int nextIndex = currentIndex + 1;
+                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                    {
+                        // 다음 씬이 존재하면 로드
+                        SceneManager.LoadScene(nextIndex);
+                    }
+                    else
+                    {
+                        // 다음 씬이 없으면(마지막 씬이면) 처음(0번)으로 돌아감
+                        SceneManager.LoadScene(0);
+                    }
+                });
+>>>>>>> Stashed changes
                 break;
         }
     }

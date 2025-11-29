@@ -937,7 +937,11 @@ GameObject:
   - component: {fileID: 1899944755}
   - component: {fileID: 1899944754}
   m_Layer: 0
+<<<<<<< Updated upstream
   m_Name: HostageManager
+=======
+  m_Name: GameObject
+>>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

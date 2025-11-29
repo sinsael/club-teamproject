@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 503f5bbf83fc828449eff36dc7119e27, type: 3}
   m_Name: EnemyData
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   maxHealth: 10
+=======
+  maxHealth: 100
+>>>>>>> Stashed changes
   healthRegen: 0
