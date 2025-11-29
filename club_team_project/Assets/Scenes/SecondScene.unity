@@ -195,7 +195,11 @@ GameObject:
   - component: {fileID: 1019783585}
   - component: {fileID: 1019783597}
   - component: {fileID: 1019783598}
+<<<<<<< Updated upstream
   m_Layer: 13
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +716,11 @@ EdgeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
+<<<<<<< Updated upstream
   m_EdgeRadius: 0.1
+=======
+  m_EdgeRadius: 0
+>>>>>>> Stashed changes
   m_Points:
   - {x: 7.5122995, y: 3.4056416}
   - {x: 2.9210367, y: 3.432324}
