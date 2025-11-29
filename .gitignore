@@ -97,3 +97,12 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+club_team_project/UserSettings/Layouts/default-6000.dwlt
+club_team_project/UserSettings/EditorUserSettings.asset
+club_team_project/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
+club_team_project/Assets/Scripts/Manager/GameManager.cs
+club_team_project/Assets/Scenes/SampleScene.unity.meta
+club_team_project/Assets/Prefab/SecondScene.unity.meta
+club_team_project/Assets/Prefab/SecondScene.unity
+club_team_project/Assets/Prefab/FirstedScene.unity.meta
+club_team_project/Assets/Prefab/FirstedScene.unity
