@@ -338,9 +338,12 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     y: 600
     width: 1145
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -462,9 +465,12 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     y: 79
     width: 1145
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1044,7 +1050,11 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Value: {x: 1.6501503, y: -2.3015356, z: -0.101010635}
+=======
+    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
+>>>>>>> Stashed changes
 =======
     m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
 >>>>>>> Stashed changes
@@ -1124,7 +1134,11 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_Value: 20.10109
+=======
+    m_Value: 16.97712
+>>>>>>> Stashed changes
 =======
     m_Value: 16.97712
 >>>>>>> Stashed changes
@@ -1356,10 +1370,13 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 1146
     y: 79
     width: 482
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1398,10 +1415,13 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       m_SelectedIDs: 0ce9ffff
       m_LastClickedID: -5876
       m_ExpandedIDs: d0e7ffff0ce9ffff52eafffff0ebffff26edffffe8edffffe8eeffffcaefffff84f0ffff46f1ffff8cf2ffff4ef3ffff76f4ffff38f5fffffaf5ffffbcf6ffffaaf9ffffdcca0000
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1534,10 +1554,13 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 1146
     y: 652
     width: 482
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1609,6 +1632,9 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -1657,7 +1683,11 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     m_ExpandedIDs: 0000000000c5000002c5000004c5000006c50000
+=======
+    m_ExpandedIDs: 000000000ec40000
+>>>>>>> Stashed changes
 =======
     m_ExpandedIDs: 000000000ec40000
 >>>>>>> Stashed changes
@@ -1717,8 +1747,13 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       m_Name: AutoCanvasCamera
       m_OriginalName: AutoCanvasCamera
+=======
+      m_Name: 
+      m_OriginalName: 
+>>>>>>> Stashed changes
 =======
       m_Name: 
       m_OriginalName: 
@@ -1760,7 +1795,11 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       m_UserData: 21412
+=======
+      m_UserData: 0
+>>>>>>> Stashed changes
 =======
       m_UserData: 0
 >>>>>>> Stashed changes
@@ -1863,10 +1902,13 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     x: 1630
     y: 79
     width: 289
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
