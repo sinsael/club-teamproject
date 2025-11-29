@@ -7,7 +7,13 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ï»¿using UnityEngine;
+=======
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+>>>>>>> Stashed changes
 =======
 using System.Collections;
 using Unity.VisualScripting;
@@ -136,6 +142,7 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // í˜¹ì‹œ ëª¨ë¥¼ ì—°ê²° ëŠê¹€ ë°©ì§€ë¥¼ ìœ„í•´ ë‹¤ì‹œ ì°¾ê¸° ì‹œë„
         if (playerController == null)
         {
@@ -144,6 +151,8 @@ public class GameManager : MonoBehaviour
                 playerController = playerObj.GetComponent<MonoBehaviour>(); // í˜¹ì€ êµ¬ì²´ì ì¸ í´ëž˜ìŠ¤ëª…
         }
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -175,6 +184,9 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -200,6 +212,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -290,6 +303,11 @@ public class GameManager : MonoBehaviour
             ChangeGameState(GameState.GamePlay);
         }
 >>>>>>> Stashed changes
+=======
+            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
+            ChangeGameState(GameState.GamePlay);
+        }
+>>>>>>> Stashed changes
 
         if (canvas != null)
         {
@@ -313,6 +331,9 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -372,6 +393,9 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -407,6 +431,7 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 =======
 =======
@@ -416,6 +441,26 @@ public class GameManager : MonoBehaviour
 =======
 =======
 =======
+=======
+                break;
+            case GameState.GameClear:
+                Time.timeScale = 1f;
+                FadeManager.Instance.FadeOut(() =>
+                {
+                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
+                    int nextIndex = currentIndex + 1;
+                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                    {
+                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
+                        SceneManager.LoadScene(nextIndex);
+                    }
+                    else
+                    {
+                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
+                        SceneManager.LoadScene(0);
+                    }
+                });
+>>>>>>> Stashed changes
                 break;
             case GameState.GameClear:
                 Time.timeScale = 1f;
