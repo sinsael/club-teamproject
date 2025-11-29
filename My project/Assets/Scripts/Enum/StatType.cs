@@ -1,0 +1,20 @@
+public enum StatType
+{
+    MaxHealth,
+    HealthRegen,
+    Damage,
+    FovRange,
+    FovRadius,
+    range,
+    Bullets,
+    Speed,
+    MaxBullets,
+    ReloadTime,
+    fireRate,
+    BulletSpeed,
+    ShotgunRange,
+    ShotgunRadius,
+    FlashbangDuration,
+    FlashbangRadius,
+    FlashbangSpeed
+}

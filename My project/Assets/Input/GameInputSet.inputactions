@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "GameInputSet",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "8030a002-88b7-4852-b89c-5e538ac1ff8f",
+            "actions": [
+                {
+                    "name": "GameStart",
+                    "type": "Button",
+                    "id": "530fd313-cabb-4941-95e8-187b63de4957",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4a6e1869-7222-41f2-b98a-c91b3282004e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -939,7 +939,11 @@ GameObject:
   m_Layer: 0
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Name: HostageManager
+=======
+  m_Name: GameObject
+>>>>>>> Stashed changes
 =======
   m_Name: GameObject
 >>>>>>> Stashed changes
