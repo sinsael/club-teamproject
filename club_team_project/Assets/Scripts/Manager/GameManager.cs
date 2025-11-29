@@ -21,6 +21,10 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
 ï»¿using UnityEngine;
 =======
 using System.Collections;
@@ -137,6 +141,14 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 >>>>>>> Stashed changes
+<<<<<<< HEAD
+=======
+=======
+using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+>>>>>>> Stashed changes
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
 using UnityEngine.SceneManagement;
 public enum GameState
 {
@@ -234,6 +246,10 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
         // í˜¹ì‹œ ëª¨ë¥¼ ì—°ê²° ëŠê¹€ ë°©ì§€ë¥¼ ìœ„í•´ ë‹¤ì‹œ ì°¾ê¸° ì‹œë„
         if (playerController == null)
         {
@@ -286,6 +302,11 @@ public class GameManager : MonoBehaviour
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
         GameObject canvas = GameObject.Find("Canvas");
 
 
@@ -315,6 +336,12 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -391,6 +418,10 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
             // [ìˆ˜ì •] ë°”ë¡œ ì‹¤í–‰í•˜ì§€ ì•Šê³ , ì½”ë£¨í‹´ì„ í†µí•´ í•œ í”„ë ˆìž„ ëŒ€ê¸° í›„ ì‹¤í–‰
             StartCoroutine(WaitAndFadeIn());
         }
@@ -542,6 +573,14 @@ public class GameManager : MonoBehaviour
             ChangeGameState(GameState.GamePlay);
         }
 >>>>>>> Stashed changes
+<<<<<<< HEAD
+=======
+=======
+            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
+            ChangeGameState(GameState.GamePlay);
+        }
+>>>>>>> Stashed changes
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
 
         if (canvas != null)
         {
@@ -579,6 +618,12 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -680,6 +725,12 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -757,6 +808,10 @@ public class GameManager : MonoBehaviour
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
 =======
 =======
 =======
@@ -780,6 +835,29 @@ public class GameManager : MonoBehaviour
 =======
 =======
 =======
+<<<<<<< HEAD
+=======
+=======
+                break;
+            case GameState.GameClear:
+                Time.timeScale = 1f;
+                FadeManager.Instance.FadeOut(() =>
+                {
+                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
+                    int nextIndex = currentIndex + 1;
+                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                    {
+                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
+                        SceneManager.LoadScene(nextIndex);
+                    }
+                    else
+                    {
+                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
+                        SceneManager.LoadScene(0);
+                    }
+                });
+>>>>>>> Stashed changes
+>>>>>>> parent of 66e6bcb (ìž„ì‹œì €ìž¥)
                 break;
             case GameState.GameClear:
                 Time.timeScale = 1f;
