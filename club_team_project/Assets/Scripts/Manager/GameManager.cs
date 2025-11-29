@@ -1,8 +1,14 @@
 using System.Collections;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+=======
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+>>>>>>> Stashed changes
 =======
 using Unity.VisualScripting;
 using UnityEngine;
@@ -42,7 +48,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         }
+=======
+
+       
+>>>>>>> Stashed changes
 =======
 
        
@@ -63,7 +74,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // ESC 키로 일시정지/해제
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -94,6 +108,7 @@ public class GameManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // 1. 플레이어 찾기 (태그 이용)
         if (playerController == null)
         {
@@ -121,6 +136,38 @@ public class GameManager : MonoBehaviour
         }
 =======
         GameObject canvas = GameObject.Find("Canvas");
+=======
+        GameObject canvas = GameObject.Find("Canvas");
+
+
+
+        // 2. 씬이 로드되면 일단 페이드 인을 무조건 실행합니다.
+        // 중요: 페이드가 끝난 뒤에 게임 상태를 변경해야 안전합니다.
+        FadeManager.Instance.FadeIn();
+
+        if (isfirsteLoad)
+        {
+            // 이제 처음 로딩 상태로 변경 (여기서 시간이 멈춤)
+            ChangeGameState(GameState.GameStart);
+        }
+        else
+        {
+            // 처음이 아니면 바로 플레이
+            ChangeGameState(GameState.GamePlay);
+        }
+
+        if (canvas != null)
+        {
+            // 2. 부모의 transform.Find는 자식이 꺼져 있어도 찾아냅니다.
+            Transform startUITr = canvas.transform.Find("GameStart");
+
+            if (startUITr != null)
+                GameStartUI = startUITr.gameObject;
+            Transform PauseUI = canvas.transform.Find("Pause");
+
+            if (PauseUI != null)
+                GamePauseUI = PauseUI.gameObject;
+>>>>>>> Stashed changes
 
 
 
@@ -207,7 +254,11 @@ public class GameManager : MonoBehaviour
                 if (playerController != null) playerController.enabled = true; // 플레이어 조작 가능
                 Time.timeScale = 1f; // 시간 정상화
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 isfirsteLoad = false; // 이제 처음 아님
+=======
+                isfirsteLoad = false;
+>>>>>>> Stashed changes
 =======
                 isfirsteLoad = false;
 >>>>>>> Stashed changes
@@ -274,6 +325,9 @@ public class GameManager : MonoBehaviour
                         SceneManager.LoadScene(0);
                     }
                 });
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 break;
         }
