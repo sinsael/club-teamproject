@@ -331,46 +331,8 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    y: 600
-    width: 1145
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
     y: 545
-    width: 1164
->>>>>>> Stashed changes
+    width: 1145
     height: 386
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -470,46 +432,8 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    y: 79
-    width: 1145
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
     y: 24
-    width: 1164
->>>>>>> Stashed changes
+    width: 1145
     height: 495
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1065,55 +989,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 2.3888328, y: -2.2571762, z: -0.09196506}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    m_Value: {x: 1.6501503, y: -2.3015356, z: -0.101010635}
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
-    m_Value: {x: -10.779326, y: 26.200188, z: 0.043161355}
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
+    m_Value: {x: 2.3888328, y: -2.2571762, z: -0.09196506}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1163,55 +1041,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 19.19654
+    m_Target: 10
     speed: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    m_Value: 20.10109
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
-    m_Value: 16.97712
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
+    m_Value: 19.19654
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1415,48 +1247,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Hierarchy\u200B"
   m_Pos:
     serializedVersion: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    x: 1146
-    y: 79
-    width: 482
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
     x: 1
     y: 24
-    width: 357
->>>>>>> Stashed changes
+    width: 482
     height: 547
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1472,62 +1265,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-      m_SelectedIDs: 0ce9ffff
-      m_LastClickedID: -5876
-      m_ExpandedIDs: d0e7ffff0ce9ffff52eafffff0ebffff26edffffe8edffffe8eeffffcaefffff84f0ffff46f1ffff8cf2ffff4ef3ffff76f4ffff38f5fffffaf5ffffbcf6ffffaaf9ffffdcca0000
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 68aeffff88aeffffa8aeffffaec1ffff20c6ffffeee9ffff0eeaffff2eeaffffb4f2ffffacfaffff32c2000078c200009cc20000
->>>>>>> Stashed changes
+      m_ExpandedIDs: d0e7ffff0ce9ffff52eafffff0ebffff26edffffe8edffffe8eeffffcaefffff84f0ffff46f1ffff8cf2ffff4ef3ffff76f4ffff38f5fffffaf5ffffbcf6ffffaaf9ffffdcca0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Bullet
-        m_OriginalName: Bullet
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -5886
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 10}
@@ -1623,48 +1377,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Project\u200B"
   m_Pos:
     serializedVersion: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    x: 1146
-    y: 652
-    width: 482
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
     x: 1
     y: 597
-    width: 357
->>>>>>> Stashed changes
+    width: 482
     height: 334
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1704,47 +1419,10 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 79}
     m_SelectedIDs: 00c50000
     m_LastClickedID: 50432
-    m_ExpandedIDs: 0000000000c5000002c5000004c5000006c50000fcc6000000ca9a3bffffff7f
-=======
-    scrollPos: {x: 0, y: 230}
-    m_SelectedIDs: bec50000
-    m_LastClickedID: 50622
-    m_ExpandedIDs: 000000000ec40000
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 66e6bcb (임시저장)
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    m_ExpandedIDs: 00000000b0c10000b2c10000b4c10000b6c10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1773,53 +1451,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    m_ExpandedIDs: 0000000000c5000002c5000004c5000006c50000
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
-    m_ExpandedIDs: 000000000ec40000
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
+    m_ExpandedIDs: 00000000b0c10000b2c10000b4c10000b6c10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1851,117 +1483,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: a4a1000050a1000044a100000ea3000022a3000004ba000000ba000038b000002cae0000c8bc0000c2be0000b4bd00001ecd0000cec60000d2c60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-      m_Name: AutoCanvasCamera
-      m_OriginalName: AutoCanvasCamera
-=======
       m_Name: 
       m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
-      m_Name: 
-      m_OriginalName: 
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-      m_UserData: 21412
-=======
       m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
-      m_UserData: 0
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 11
@@ -2036,48 +1566,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (임시저장)
-    x: 1630
-    y: 79
-    width: 289
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (임시저장)
-    x: 1525
+    x: 1631
     y: 24
-    width: 395
->>>>>>> Stashed changes
+    width: 289
     height: 907
   m_SerializedDataModeController:
     m_DataMode: 0

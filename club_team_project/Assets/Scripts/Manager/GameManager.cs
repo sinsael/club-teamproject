@@ -1,155 +1,7 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
-ï»¿using UnityEngine;
-=======
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
 using UnityEngine.SceneManagement;
+
 public enum GameState
 {
     GameStart,
@@ -159,17 +11,18 @@ public enum GameState
     GameClear
 }
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    // °ÔÀÓ ÀüÃ¼¿¡¼­ °øÀ¯µÇ´Â º¯¼ö (Ã³À½ Ä×À» ¶§¸¸ true)
     public static bool isfirsteLoad = true;
+
     public GameState currentGameState { get; private set; }
     public GameObject GameStartUI;
     public GameObject GamePauseUI;
 
-
+    // ÇÃ·¹ÀÌ¾î Á¶ÀÛÀ» ¸ØÃß±â À§ÇÑ ÂüÁ¶
     public MonoBehaviour playerController;
 
     public void Awake()
@@ -180,15 +33,14 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         else
+        {
             Destroy(gameObject);
-
-       
+        }
     }
 
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        
     }
 
     public void OnDisable()
@@ -198,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // ESC Å°·Î ÀÏ½ÃÁ¤Áö/ÇØÁ¦
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (currentGameState == GameState.GamePlay)
@@ -210,470 +63,77 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (HostageManager.instance.AllSaveHostage)
+        // ÀÎÁúÀ» ´Ù ±¸ÇßÀ¸¸é Å¬¸®¾î (HostageManager°¡ ÀÖÀ» ¶§¸¸)
+        if (HostageManager.instance != null && HostageManager.instance.AllSaveHostage)
         {
             ChangeGameState(GameState.GameClear);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        // (Å×½ºÆ®¿ë) ½ºÆäÀÌ½º¹Ù·Î °­Á¦ Å¬¸®¾î
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            ChangeGameState (GameState.GameClear);
+            ChangeGameState(GameState.GameClear);
         }
     }
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
-        // í˜¹ì‹œ ëª¨ë¥¼ ì—°ê²° ëŠê¹€ ë°©ì§€ë¥¼ ìœ„í•´ ë‹¤ì‹œ ì°¾ê¸° ì‹œë„
+        // 1. ÇÃ·¹ÀÌ¾î Ã£±â (ÅÂ±× ÀÌ¿ë)
         if (playerController == null)
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
             if (playerObj != null)
-                playerController = playerObj.GetComponent<MonoBehaviour>(); // í˜¹ì€ êµ¬ì²´ì ì¸ í´ë˜ìŠ¤ëª…
+                // ÇÃ·¹ÀÌ¾î ½ºÅ©¸³Æ® ÀÌ¸§À» Á¤È®È÷ ¾È´Ù¸é MonoBehaviour ´ë½Å ±× ÀÌ¸§(¿¹: PlayerController)À» ¾²¼¼¿ä
+                playerController = playerObj.GetComponent<MonoBehaviour>();
         }
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
+
+        // 2. UI ¿ÀºêÁ§Æ® Ã£±â (Canvas ÀÚ½Ä¿¡¼­ Ã£±â)
         GameObject canvas = GameObject.Find("Canvas");
-
-
-
-        // 2. ¾ÀÀÌ ·ÎµåµÇ¸é ÀÏ´Ü ÆäÀÌµå ÀÎÀ» ¹«Á¶°Ç ½ÇÇàÇÕ´Ï´Ù.
-        // Áß¿ä: ÆäÀÌµå°¡ ³¡³­ µÚ¿¡ °ÔÀÓ »óÅÂ¸¦ º¯°æÇØ¾ß ¾ÈÀüÇÕ´Ï´Ù.
-        FadeManager.Instance.FadeIn();
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
-        if (isfirsteLoad)
+        if (canvas != null)
         {
-            // ÀÌÁ¦ Ã³À½ ·Îµù »óÅÂ·Î º¯°æ (¿©±â¼­ ½Ã°£ÀÌ ¸ØÃã)
-            ChangeGameState(GameState.GameStart);
+            Transform startUITr = canvas.transform.Find("GameStart");
+            if (startUITr != null) GameStartUI = startUITr.gameObject;
+
+            Transform pauseUITr = canvas.transform.Find("Pause");
+            if (pauseUITr != null) GamePauseUI = pauseUITr.gameObject;
         }
         else
         {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
-            // [ìˆ˜ì •] ë°”ë¡œ ì‹¤í–‰í•˜ì§€ ì•Šê³ , ì½”ë£¨í‹´ì„ í†µí•´ í•œ í”„ë ˆì„ ëŒ€ê¸° í›„ ì‹¤í–‰
-            StartCoroutine(WaitAndFadeIn());
+            // Äµ¹ö½º ¸ø Ã£¾ÒÀ¸¸é ±×³É ÀÌ¸§À¸·Î¶óµµ Ã£±â ½Ãµµ
+            if (GameStartUI == null) GameStartUI = GameObject.Find("GameStart");
+            if (GamePauseUI == null) GamePauseUI = GameObject.Find("Pause");
         }
-    }
 
-    IEnumerator WaitAndFadeIn()
-    {
-        // í•œ í”„ë ˆì„(ì•½ 0.016ì´ˆ)ì„ ì‰½ë‹ˆë‹¤. ì´ ë™ì•ˆ FadeManagerê°€ í™•ì‹¤íˆ ë¡œë”©ë©ë‹ˆë‹¤.
-        yield return null;
+        // 3. ¾À ·Îµå ½Ã ÆäÀÌµå ÀÎ ¿¬Ãâ ½ÃÀÛ
+        Time.timeScale = 1f; // ÆäÀÌµå°¡ º¸ÀÌµµ·Ï ½Ã°£ Èå¸£°Ô ¼³Á¤
 
-        // ì•ˆì „ ì¥ì¹˜: ê¸°ë‹¤ë ¸ëŠ”ë°ë„ ì—†ìœ¼ë©´ ì—ëŸ¬ ë¡œê·¸ ì¶œë ¥
         if (FadeManager.Instance != null)
         {
-            FadeManager.Instance.FadeIn();
-            ChangeGameState(GameState.GamePlay);
+            FadeManager.Instance.FadeIn(() =>
+            {
+                // ÆäÀÌµå°¡ ³¡³­ ÈÄ ½ÇÇàµÉ ·ÎÁ÷
+                if (isfirsteLoad)
+                {
+                    ChangeGameState(GameState.GameStart);
+                }
+                else
+                {
+                    ChangeGameState(GameState.GamePlay);
+                }
+            });
         }
         else
         {
-            Debug.LogError("FadeManagerê°€ ì—¬ì „íˆ ì—†ìŠµë‹ˆë‹¤! DontDestroyOnLoad ì„¤ì •ì„ í™•ì¸í•´ì£¼ì„¸ìš”.");
-            // UIë¼ë„ ë„ê¸° ìœ„í•´ ê°•ì œ ë³€ê²½
-            ChangeGameState(GameState.GamePlay);
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
-
-        if (canvas != null)
-        {
-            // 2. ºÎ¸ğÀÇ transform.Find´Â ÀÚ½ÄÀÌ ²¨Á® ÀÖ¾îµµ Ã£¾Æ³À´Ï´Ù.
-            Transform startUITr = canvas.transform.Find("GameStart");
-
-            if (startUITr != null)
-                GameStartUI = startUITr.gameObject;
-            Transform PauseUI = canvas.transform.Find("Pause");
-
-            if (PauseUI != null)
-                GamePauseUI = PauseUI.gameObject;
-
->>>>>>> Stashed changes
+            // ÆäÀÌµå ¸Å´ÏÀú°¡ ¾øÀ¸¸é ¹Ù·Î ½ÃÀÛ
+            if (isfirsteLoad) ChangeGameState(GameState.GameStart);
+            else ChangeGameState(GameState.GamePlay);
         }
     }
-
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
-<<<<<<< HEAD
-=======
-=======
-            // Ã³À½ÀÌ ¾Æ´Ï¸é ¹Ù·Î ÇÃ·¹ÀÌ
-            ChangeGameState(GameState.GamePlay);
-        }
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
-
-        if (canvas != null)
-        {
-            // 2. ºÎ¸ğÀÇ transform.Find´Â ÀÚ½ÄÀÌ ²¨Á® ÀÖ¾îµµ Ã£¾Æ³À´Ï´Ù.
-            Transform startUITr = canvas.transform.Find("GameStart");
-
-            if (startUITr != null)
-                GameStartUI = startUITr.gameObject;
-            Transform PauseUI = canvas.transform.Find("Pause");
-
-            if (PauseUI != null)
-                GamePauseUI = PauseUI.gameObject;
-
-        }
-    }
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 
     public void OnPlayerDead()
     {
-        // ìƒíƒœëŠ” ë³€ê²½í•˜ë˜ (ì…ë ¥ ë§‰ê¸° ìš©ë„), UIëŠ” ë„ìš°ì§€ ì•ŠìŒ
         ChangeGameState(GameState.GameOver);
     }
-
 
     public void ChangeGameState(GameState newState)
     {
@@ -681,633 +141,64 @@ public class GameManager : MonoBehaviour
 
         CloseAllUI();
 
-        // 2. ìƒíƒœì— ë”°ë¼ í•„ìš”í•œ ì²˜ë¦¬(UI ì¼œê¸°, ì‹œê°„ ì •ì§€ ë“±)ë¥¼ 'í•œ ë²ˆë§Œ' ìˆ˜í–‰í•©ë‹ˆë‹¤.
         switch (currentGameState)
         {
             case GameState.GameStart:
                 if (GameStartUI != null) GameStartUI.SetActive(true);
-
-                playerController.enabled = false;
-                Time.timeScale = 0f; // ì‹œê°„ ì •ìƒí™”
+                if (playerController != null) playerController.enabled = false; // ÇÃ·¹ÀÌ¾î Á¶ÀÛ ºÒ°¡
+                Time.timeScale = 0f; // ½Ã°£ Á¤Áö
                 break;
 
             case GameState.GamePause:
                 if (GamePauseUI != null) GamePauseUI.SetActive(true);
-                Time.timeScale = 0f; // ê²Œì„ ì¼ì‹œ ì •ì§€
+                Time.timeScale = 0f; // ½Ã°£ Á¤Áö
                 break;
 
             case GameState.GamePlay:
-<<<<<<< Updated upstream
-                Time.timeScale = 1f; // ì‹œê°„ ì •ìƒí™”
-                playerController.enabled = true;
-=======
+                if (playerController != null) playerController.enabled = true; // ÇÃ·¹ÀÌ¾î Á¶ÀÛ °¡´É
                 Time.timeScale = 1f; // ½Ã°£ Á¤»óÈ­
-                isfirsteLoad = false;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+                isfirsteLoad = false; // ÀÌÁ¦ Ã³À½ ¾Æ´Ô
                 break;
 
             case GameState.GameOver:
-                Time.timeScale = 1f; // ê²Œì„ ì •ì§€
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    isfirsteLoad = false;
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                });
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-=======
-<<<<<<< HEAD
-=======
-=======
-                break;
-            case GameState.GameClear:
                 Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
+                if (FadeManager.Instance != null)
                 {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                    FadeManager.Instance.FadeOut(() =>
                     {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
->>>>>>> parent of 66e6bcb (ì„ì‹œì €ì¥)
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
-                break;
-            case GameState.GameClear:
-                Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
-                {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    if (nextIndex < SceneManager.sceneCountInBuildSettings)
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ Á¸ÀçÇÏ¸é ·Îµå
-                        SceneManager.LoadScene(nextIndex);
-                    }
-                    else
-                    {
-                        // ´ÙÀ½ ¾ÀÀÌ ¾øÀ¸¸é(¸¶Áö¸· ¾ÀÀÌ¸é) Ã³À½(0¹ø)À¸·Î µ¹¾Æ°¨
-                        SceneManager.LoadScene(0);
-                    }
-                });
->>>>>>> Stashed changes
+                        // ÇöÀç ¾À Àç½ÃÀÛ
+                        isfirsteLoad = false;
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    });
+                }
+                else SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 break;
 
             case GameState.GameClear:
                 Time.timeScale = 1f;
-                FadeManager.Instance.FadeOut(() =>
+                if (FadeManager.Instance != null)
                 {
-                    int currentIndex = SceneManager.GetActiveScene().buildIndex;
-                    int nextIndex = currentIndex + 1;
-                    HostageManager.instance.AllSaveHostage = false;
-                    SceneManager.LoadScene(nextIndex);
-                });
-                break;
+                    FadeManager.Instance.FadeOut(() =>
+                    {
+                        // ´ÙÀ½ ¾ÀÀ¸·Î ÀÌµ¿ ·ÎÁ÷
+                        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+                        int nextIndex = currentIndex + 1;
 
+                        // ÀÎÁú ±¸Á¶ »óÅÂ ÃÊ±âÈ­ (ÇÊ¿äÇÏ´Ù¸é)
+                        if (HostageManager.instance != null) HostageManager.instance.AllSaveHostage = false;
+
+                        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+                        {
+                            SceneManager.LoadScene(nextIndex);
+                        }
+                        else
+                        {
+                            // ¸¶Áö¸· ¾ÀÀÌ¸é Ã³À½À¸·Î
+                            SceneManager.LoadScene(0);
+                        }
+                    });
+                }
+                break;
         }
     }
 
